@@ -1,20 +1,21 @@
 My Portfolio Website built with Next.js and Tailwind CSS
 
 
-This is my personal portfolio website, built using Next.js and TypeScript. The website showcases my skills, projects, and experience to potential employers or clients. It is also an opportunity for me to experiment with new technologies and design concepts.
-
 
 Table of Contents
-Features
-Technologies Used
-Getting Started
-Usage
-Contributing
-License
-Features
+
+# Features
+# Technologies Used
+# Getting Started
+# Usage
+# Contributing
+# License
+# Features
+
 
 
 * The portfolio website includes the following features:
+ 
 
 - Home page with a brief introduction and links to my resume and social media profiles
 
@@ -28,6 +29,8 @@ Features
 
 - Dark mode toggle for improved readability and accessibility
 Animations and interactions that provide a more engaging user experience
+
+
 
 
 * Technologies Used
@@ -47,13 +50,18 @@ Getting Started
 
 
 
+
 * To get started with the portfolio website, clone the repository and install the dependencies:
+
 
 bash
 Copy code
 git clone https://github.com/ruckyTheWebDesigner/portfoliov2
 cd portfolio
 npm install
+
+
+
 Usage
 To run the website locally, use the following command:
 
@@ -61,11 +69,15 @@ Copy code
 npm run dev
 This will start a development server at http://localhost:3000.
 
+
+
 To build the website for production, use the following command:
 
 Copy code
 npm run build
 This will generate an optimized production build in the out directory.
+
+
 
 
 * Contributing
