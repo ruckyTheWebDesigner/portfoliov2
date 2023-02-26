@@ -1,38 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+My Portfolio Website built with Next.js and Tailwind CSS
 
-## Getting Started
 
-First, run the development server:
+This is my personal portfolio website, built using Next.js and TypeScript. The website showcases my skills, projects, and experience to potential employers or clients. It is also an opportunity for me to experiment with new technologies and design concepts.
 
-```bash
+
+Table of Contents
+Features
+Technologies Used
+Getting Started
+Usage
+Contributing
+License
+Features
+
+
+* The portfolio website includes the following features:
+
+- Home page with a brief introduction and links to my resume and social media profiles
+
+- About page with a more detailed description of my background, skills, and experience
+
+- Projects page showcasing my past projects with screenshots and descriptions
+
+- Contact page with a form for visitors to send me a message or connect with me on social media
+
+- Responsive design that looks great on desktop and mobile devices
+
+- Dark mode toggle for improved readability and accessibility
+Animations and interactions that provide a more engaging user experience
+
+
+* Technologies Used
+
+- The portfolio website was built using the following technologies:
+
+- Next.js - a React framework for server-side rendering and static site generation
+
+- TypeScript - a typed superset of JavaScript that provides enhanced type checking and code structure
+
+- Tailwind CSS - a utility-first CSS framework for rapid UI development
+
+- Framer Motion - a library for creating animations and interactions in React applications
+
+- Formik - a library for building forms in React applications
+Getting Started
+
+
+
+* To get started with the portfolio website, clone the repository and install the dependencies:
+
+bash
+Copy code
+git clone https://github.com/ruckyTheWebDesigner/portfoliov2
+cd portfolio
+npm install
+Usage
+To run the website locally, use the following command:
+
+Copy code
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+This will start a development server at http://localhost:3000.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To build the website for production, use the following command:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy code
+npm run build
+This will generate an optimized production build in the out directory.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+* Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Contributions to the portfolio website are welcome! If you find a bug or have an idea for a new feature, please open an issue or submit a pull request.
