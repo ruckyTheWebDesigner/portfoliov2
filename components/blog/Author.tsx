@@ -1,40 +1,23 @@
-import { Avatar } from "@mantine/core";
-import { useQuery } from "@tanstack/react-query";
-import React from "react";
+"use client";
 
-import { fetchUser } from "../../utils/user";
+import React, { Suspense } from "react";
+import CustomAvatar from "../shared/Avatar";
+interface AuthorProps {
+  name: string;
+  photo: string;
+}
 
-function Author() {
-  const { data, isLoading } = useQuery({
-    queryKey: ["user", name],
-    queryFn: async () => {
-      const response = await fetchUser();
-
-      const {
-        data: {
-          user: { name, photo },
-        },
-      } = response;
-
-      return { name, photo };
-    },
-
-    onError(error) {
-      console.log(error);
-    },
-  });
+function Author({ name, photo }: AuthorProps) {
   return (
     <div className='flex items-center space-x-6'>
       <div>
-        {isLoading ? (
-          <Avatar size={60} radius={100} />
-        ) : (
-          <Avatar src={data.photo} alt={data.name} size={60} radius={100} />
-        )}
+        <Suspense fallback={<CustomAvatar size={60} radius={100} />}>
+          <CustomAvatar src={photo} alt={name} size={60} radius={100} />
+        </Suspense>
       </div>
       <div className='leading-relaxed'>
         <h6 className='dark:text-slate-300'>WRITTEN BY</h6>
-        <span className='font-semibold text-xl lg:text-2xl'>{data?.name}</span>
+        <span className='font-semibold text-xl lg:text-2xl'>{name}</span>
       </div>
     </div>
   );

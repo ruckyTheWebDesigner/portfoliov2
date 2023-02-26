@@ -14,15 +14,17 @@ function CustomContainer({
   children,
   py,
   my,
-  size,
+  size = "md",
+  className,
 }: {
   children: React.ReactNode;
-  size: MantineNumberSize;
+  size?: MantineNumberSize;
   py?: SystemProp<SpacingValue>;
   my?: SystemProp<SpacingValue>;
+  className?: string;
 }) {
   return (
-    <Container py={py} my={my} size={size}>
+    <Container className={className} py={py} my={my} size={size}>
       {children}
     </Container>
   );

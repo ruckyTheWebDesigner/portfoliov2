@@ -1,3 +1,5 @@
+"use client";
+
 import { Container, Tooltip } from "@mantine/core";
 import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -7,12 +9,12 @@ import { FiMoon, FiSun } from "react-icons/fi";
 import { GiSpeaker, GiSpeakerOff } from "react-icons/gi";
 import { IoArrowBackOutline } from "react-icons/io5";
 
-function Header({ data }) {
+function Header({ data }: any) {
   const [theme, setTheme] = React.useState("light");
   const [sound, setSound] = React.useState(true);
   return (
     <Container
-      size={"md"}
+      size={"lg"}
       mb={"lg"}
       py={"xl"}
       className=' flex items-center justify-between'>
@@ -33,7 +35,7 @@ function Header({ data }) {
             className='rounded-full'
           />
           <h4 className='font-bold text-sm md:text-lg lg:text-xl'>
-            {data?.post.author.name}'s Blog
+            {`${data?.post.author.name}'s`} Blog
           </h4>
         </div>
       </div>

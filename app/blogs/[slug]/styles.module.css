@@ -1,0 +1,49 @@
+.content p {
+  margin: 2.5em 0;
+  line-height: 2;
+}
+
+.content p:first-of-type {
+  font-size: 1.1em;
+  /* Your styles here */
+}
+
+.content:first-letter {
+  font-size: 1.7em;
+  float: left;
+  margin-right: 0.1em;
+  line-height: 0.8;
+}
+
+.content pre {
+  background-color: #0f172a;
+  color: #fafafa;
+  padding: 1.8em;
+  border-radius: 0.5em;
+  /* margin-bottom: 2.5em; */
+  word-break: break-word;
+  overflow: auto;
+}
+
+.hljs-attr,
+.hljs-keyword,
+.hljs-name,
+.hljs-selector-tag {
+  color: #f92672;
+}
+
+.content em {
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .content pre {
+    margin: 3em 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .content pre {
+    background-color: ##0f172a;
+  }
+}

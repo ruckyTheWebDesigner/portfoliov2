@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import useArticles from "../../hooks/useArticles";
-import BlogCard from "../shared/Card";
+import BlogCard from "../shared/BlogCard";
 
 import Button from "../shared/Button";
 
@@ -16,7 +16,7 @@ function MoreArticles() {
         </span>
       </div>
       <div className='grid gap-4 md:gap-6 items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-        {data?.slice(0, 5).map((article) => {
+        {data?.slice(0, 5).map((article: any) => {
           return (
             <Link href={`/blogs/${article.slug}`} key={article._id}>
               <BlogCard title={article.title} description={article.brief} />

@@ -85,7 +85,7 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
                     <span
                       onClick={() => {
                         // sound && audio.play();
-                        toggleColorScheme();
+                        // toggleColorScheme();
                       }}>
                       {colorScheme === "dark" ? <FiMoon /> : <FiSun />}
                     </span>

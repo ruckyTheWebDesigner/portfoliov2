@@ -1,10 +1,11 @@
-import BlogCard from "@/components/shared/Card";
+import BlogCard from "@/components/shared/BlogCard";
 import NavBar from "@/components/shared/NavBar";
 import Container from "@/components/shared/Container";
 import Skeleton from "@/components/shared/Skeleton";
 import Link from "next/link";
 import { Suspense } from "react";
 import { FooterCentered } from "@/components/shared/Footer";
+
 export default async function Blogs() {
   const response = await fetch("http://localhost:3000/api/articles");
   const data = await response.json();

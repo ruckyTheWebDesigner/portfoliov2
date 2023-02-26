@@ -104,6 +104,31 @@ a {
   text-decoration: none;
 }
 
+.content pre code span .hljs-attr,
+.hljs-keyword,
+.hljs-name,
+.hljs-selector-tag {
+  color: #f92672;
+}
+
+.content pre code span .hljs-addition,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-attr,
+.hljs-selector-id,
+.hljs-selector-pseudo,
+.hljs-string,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable {
+  color: #e6db74;
+}
+
+.content .prose pre {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -111,5 +136,9 @@ a {
 
   /* p {
     color: #94a3b8;
+  } */
+
+  /* .content pre {
+    background-color: #1e293b;
   } */
 }

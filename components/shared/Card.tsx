@@ -1,44 +1,36 @@
 "use client";
-import React from "react";
-import { Card, Text } from "@mantine/core";
-import { FiArrowRight } from "react-icons/fi";
 
-import Button from "./Button";
+import { Card, MantineNumberSize, MantineShadow } from "@mantine/core";
+import React from "react";
 
 interface Props {
-  title: string;
-  description: string;
+  /** Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property */
+  shadow?: MantineShadow;
+  /** Predefined border-radius value from theme.radius or number for border-radius in px */
+  radius?: MantineNumberSize;
+  /** Adds 1px border with theme.colors.gray[3] color in light color scheme and theme.colors.dark[4] in dark color scheme */
+  withBorder?: boolean;
+  /** Paper children */
+  children?: React.ReactNode;
 }
 
-function BlogCard({
-  title,
-  description,
-}: Props & { children?: React.ReactNode }) {
+function CustomCard({
+  children,
+  className,
+  shadow,
+  radius,
+}: // ...props
+{
+  children: React.ReactNode;
+  className?: string;
+  shadow?: MantineShadow;
+  radius?: MantineNumberSize;
+}) {
   return (
-    <Card
-      sx={{
-        height: "100%",
-        transition: "all 0.2s ease-in-out",
-        "&:hover": {
-          transform: "translateY(-5px)",
-        },
-      }}
-      shadow='xl'
-      className='flex flex-col justify-between items-start leading-relaxed group  space-y-2 lg:space-y-4 cursor-pointer hover:shadow-xl p-4 lg:p-6'
-      radius={"md"}>
-      <div className='space-y-4 '>
-        <span className=' text-xl lg:text-2xl font-semibold  group-hover:text-teal-400'>
-          {title}
-        </span>
-
-        <p className='font-medium'>{description.slice(0, 150).concat("...")}</p>
-      </div>
-
-      <Button variant='gradient' rightIcon={<FiArrowRight className='' />}>
-        Read More
-      </Button>
+    <Card shadow={shadow} radius={radius} className={className}>
+      {children}
     </Card>
   );
 }
 
-export default BlogCard;
+export default CustomCard;
