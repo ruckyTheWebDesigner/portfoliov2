@@ -1,123 +1,104 @@
-import { useRef, useEffect, useState } from "react";
-import emailjs from "@emailjs/browser";
-import Alert from "@mui/material/Alert";
-import Stack from "@mui/material/Stack";
+import {
+  TextInput,
+  Textarea,
+  SimpleGrid,
+  Group,
+  Title,
+  Button,
+  Container,
+} from "@mantine/core";
+// import { useForm } from "@mantine/form";
 
-function ContactMe() {
-  const [message, setMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [resolution, setResolution] = useState(1000);
-
-  const form = useRef();
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents default refresh by the browser
-
-    let message = e.target.message.value;
-    let email = e.target.from_email.value;
-
-    if (email.length < 1) {
-      setErrorMessage("Please enter your email");
-    } else if (message.length < 1) {
-      setErrorMessage("Please enter a message");
-    } else {
-      emailjs
-        .sendForm(
-          "default_service",
-          "template_84j6n0e",
-          form.current,
-          "isgYroE-8cvOOhaCM"
-        )
-        .then(
-          (result) => {
-            setErrorMessage("");
-            setMessage("Message sent! I will get back to you shortly.");
-          },
-          (error) => {
-            setMessage("Oops... " + JSON.stringify(error));
-          }
-        );
-      e.target.reset();
-    }
-  };
+function GetInTouchSimple() {
+  // const form = useForm({
+  //   initialValues: {
+  //     name: "",
+  //     email: "",
+  //     subject: "",
+  //     message: "",
+  //   },
+  //   validate: {
+  //     name: (value) => value.trim().length < 2,
+  //     email: (value) => !/^\S+@\S+$/.test(value),
+  //     subject: (value) => value.trim().length === 0,
+  //   },
+  // });
 
   return (
-    <div className='px-4 form-content' id='contact-me'>
-      <div className='text-center get-in-touch'>
-        <div className=' d-flex justify-content-center align-items-center mt-5 mb-2 green-text'>
-          <h6 className='me-2'>03.</h6>
-          <h4>What's Next?</h4>
+    <Container size={"xs"} className='space-y-16 sm:space-y-24 md:space-y-32'>
+      <form className='text-center'>
+        <div className='space-y-4'>
+          <div
+            className='abouttitle text-lg md:text-xl flex items-center justify-center space-x-2'
+            id='#About'>
+            <h6 className=''>03.</h6>
+            <h4 className='about text-teal-400'>{`What's Next?`}</h4>
+          </div>
+
+          <Title
+            order={2}
+            size='h1'
+            sx={(theme) => ({
+              fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+            })}
+            weight={900}
+            align='center'>
+            Get in touch
+          </Title>
+
+          <p>
+            {`I'm open to new opportunities. Whether you have a question or just want to say hi.`}
+          </p>
         </div>
-        <h2>Get In Touch</h2>
-        <p
-          className='get-in-touch'
-          style={
-            resolution > 1200
-              ? { padding: "2px 200px" }
-              : resolution > 680
-              ? { padding: "5px 50px" }
-              : { padding: "3px 40px" }
-          }>
-          I'm open to new opportunities. Whether you have a question or just
-          want to say hi.
-        </p>
-      </div>
 
-      <form
-        encType='multipart/form-data'
-        method='post'
-        ref={form}
-        onSubmit={handleSubmit}
-        className='myForm'>
-        {message && (
-          <Stack className='my-2'>
-            <Alert
-              onClose={() => {
-                setMessage("");
-              }}
-              severity='success'>
-              {message}
-            </Alert>
-          </Stack>
-        )}
-        {errorMessage && (
-          <Stack className='my-2'>
-            <Alert
-              onClose={() => {
-                setErrorMessage("");
-              }}
-              severity='error'>
-              {errorMessage}
-            </Alert>
-          </Stack>
-        )}
+        <SimpleGrid
+          cols={2}
+          mt='xl'
+          breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
+          <TextInput
+            label='Name'
+            placeholder='Your name'
+            name='name'
+            variant='filled'
+            // {...form.getInputProps("name")}
+          />
+          <TextInput
+            label='Email'
+            placeholder='Your email'
+            name='email'
+            variant='filled'
+            // {...form.getInputProps("email")}
+          />
+        </SimpleGrid>
 
-        <input
-          type='text'
-          className='my-1 p-2'
-          name='from_name'
-          placeholder='Name'
+        <TextInput
+          label='Subject'
+          placeholder='Subject'
+          mt='md'
+          name='subject'
+          variant='filled'
+          // {...form.getInputProps("subject")}
         />
-        <input
-          type='text'
-          className='my-1 p-2'
-          name='from_email'
-          id=''
-          placeholder='Email Address'
-        />
-
-        <textarea
+        <Textarea
+          mt='md'
+          label='Message'
+          placeholder='Your message'
+          maxRows={10}
+          minRows={5}
+          autosize
           name='message'
-          className='my-1 p-2 textarea'
-          style={{ width: "100%" }}
-          rows='4'
-          placeholder='Message'></textarea>
+          variant='filled'
+          // {...form.getInputProps("subject")}
+        />
 
-        <button type='submit' value='Send' className='button my-1 py-2 px-4'>
-          Send Message
-        </button>
+        <Group position='center' mt='xl'>
+          <Button variant='outline' type='submit' size='md'>
+            Send message
+          </Button>
+        </Group>
       </form>
-    </div>
+    </Container>
   );
 }
 
-export default ContactMe;
+export default GetInTouchSimple;

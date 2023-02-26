@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import Project from "./Project";
 import Projectsinfo from "./Projectsinfo";
 import { motion } from "framer-motion";
+import { Divider } from "@mantine/core";
 // import { gsap } from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -37,13 +38,21 @@ function Projects() {
   // }, []);
 
   return (
-    <div>
-      <div className='abouttitle d-flex align-items-center line' id='projects'>
-        <h6 className='green-text me-2'>02.</h6>
-        <h4 className='about'>Some Things I've Built</h4>
-      </div>
+    <div className='space-y-6 md:space-y-8 lg:space-y-10'>
+      <Divider
+        my='xs'
+        // color={"primary"}
+        label={
+          <div
+            className='abouttitle text-lg md:text-xl flex items-center space-x-2'
+            id='projects'>
+            <h6 className='text-teal-400'>02.</h6>
+            <h4 className='about'>{`Some Things I've Built`}</h4>
+          </div>
+        }
+      />
 
-      <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
+      <div className='grid grid-cols-1 gap-4 md:gap-6 sm:grid-cols-2'>
         {Projectsinfo.map((project) => {
           return (
             <motion.div

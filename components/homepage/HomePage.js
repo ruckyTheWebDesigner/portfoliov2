@@ -4,7 +4,7 @@ import Hero from "./Hero";
 import AboutMe from "./AboutMe.tsx";
 import Projects from "./Projects";
 import OtherProjects from "./OtherProjects";
-// import ContactMe from "./ContactMe";
+import ContactMe from "./ContactMe";
 import Sidebar from "./Sidebar";
 import Loading from "./loading";
 // import Slider from "./Slider";
@@ -23,7 +23,7 @@ function HomePage() {
         <Projects />
         <OtherProjects />
         {/* <Slider /> */}
-        {/* <ContactMe /> */}
+        <ContactMe />
         <Sidebar />
       </Container>
     </>

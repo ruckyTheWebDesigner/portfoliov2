@@ -44,10 +44,14 @@ function OtherProjects() {
   }
 
   return (
-    <div>
-      <h4 className='text-center others-heading'>Other Noteworthy Projects</h4>
-      <h6 className='green-text text-center'>view the archive</h6>
-      <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
+    <div className='space-y-10 md:space-y-14'>
+      <div className='space-y-2 text-center'>
+        <h4 className='text-lg md:text-2xl font-semibold'>
+          Other Noteworthy Projects
+        </h4>
+        <h6 className='text-teal-400 '>view the archive</h6>
+      </div>
+      <div className='grid grid-cols-1 gap-4 md:gap-6 sm:grid-cols-2'>
         {OtherprojectsNotes.map((project, index) => {
           return (
             <motion.div

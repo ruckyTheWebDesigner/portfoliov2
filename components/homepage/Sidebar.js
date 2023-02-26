@@ -1,15 +1,16 @@
+import { Container } from "@mantine/core";
 import React from "react";
 
 import { FiTwitter, FiGithub } from "react-icons/fi";
 
 function Sidebar() {
   return (
-    <>
-      <div className='sidebar'>
+    <Container size={"lg"} className='relative'>
+      <div className='fixed bottom-0 right-3 lg:right-24 after:w-3 after:h-4'>
         <a href='/'>contact@rukewe@gmail.com</a>
       </div>
 
-      <div className='sidebar-right'>
+      <div className='fixed bottom-0 left-3 lg:left-24'>
         <a
           href='https://twitter.com/Ruckysleek'
           target='_blank'
@@ -24,8 +25,8 @@ function Sidebar() {
         </a>
       </div>
 
-      <div className='footer'>
-        <div className='footer-icons d-flex align-items-center justify-content-center'>
+      <div className='flex flex-col items-center py-8'>
+        <div className='flex items-center'>
           <a
             href='https://twitter.com/Ruckysleek'
             target='_blank'
@@ -42,7 +43,7 @@ function Sidebar() {
         </div>
         <h6 className='text-center'>Designed & Built by Rukewe Joseph</h6>
       </div>
-    </>
+    </Container>
   );
 }
 

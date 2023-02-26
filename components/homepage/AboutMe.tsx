@@ -66,7 +66,7 @@ function AboutMe() {
   // }, [revealRefs]);
 
   return (
-    <div id='about-me' className='space-y-6 md:space-y-8'>
+    <div id='about-me' className='space-y-6 md:space-y-8 lg:space-y-10'>
       <Divider
         my='xs'
         // color={"primary"}
