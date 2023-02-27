@@ -5,6 +5,7 @@ import Header from "@/components/blogs/Header";
 import Image from "next/image";
 import React from "react";
 import Author from "@/components/blog/Author";
+import MoreArticles from "../../../components/shared/MoreArticles";
 // import MoreArticles from "@/components/blog/MoreArticles";
 import type { Metadata } from "next";
 
@@ -27,7 +28,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const data = await getArticle(params.slug);
 
-  return { title: data?.post.title, description: data?.post.brief };
+  return {
+    title: data?.post.title,
+    description: data?.post.brief,
+    authors: {
+      name: data?.post.author.name,
+      url: data?.post.author.url,
+    },
+    publisher: data?.post.author.name,
+  };
 }
 
 async function Blog({
@@ -131,8 +140,6 @@ async function Blog({
                   />
                 </div>
               </div>
-
-              {/* <MoreArticles /> */}
             </section>
           </div>
         </CustomContainer>

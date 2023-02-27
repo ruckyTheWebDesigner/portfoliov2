@@ -60,14 +60,16 @@ export default async function Blogs() {
         </div>
       </Container>
 
-      <FooterCentered
-        links={[
-          {
-            link: "/",
-            label: "Home",
-          },
-        ]}
-      />
+      <div>
+        <FooterCentered
+          links={[
+            {
+              link: "/",
+              label: "Home",
+            },
+          ]}
+        />
+      </div>
     </div>
   );
 }

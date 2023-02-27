@@ -58,8 +58,8 @@ export function FooterCentered({ links }: FooterCenteredProps) {
   ));
 
   return (
-    <div className={classes.footer}>
-      <Container size={"lg"}>
+    <div>
+      <Container className={classes.footer} size={"lg"}>
         <div className={classes.inner}>
           {/* <MantineLogo size={28} />
            */}
