@@ -1,10 +1,12 @@
 import BlogCard from "@/components/shared/BlogCard";
 import NavBar from "@/components/shared/NavBar";
+import Button from "@/components/shared/Button";
 import Container from "@/components/shared/Container";
 import Skeleton from "@/components/shared/Skeleton";
 import Link from "next/link";
 import { Suspense } from "react";
 import { FooterCentered } from "@/components/shared/Footer";
+import { FiPlus } from "react-icons/fi";
 
 export default async function Blogs() {
   const response = await fetch("http://localhost:3000/api/articles");
@@ -21,7 +23,7 @@ export default async function Blogs() {
   return (
     <div>
       <NavBar />
-      <Container size={"md"} py={"xl"} my={"xl"}>
+      <div className='py-6 lg:py-10 container mx-auto px-4 lg:px-14 xl:px-36'>
         <div className='mb-6 flex justify-between items-center'>
           <h6 className='text-lg font-medium'> Latest Blogs</h6>
 
@@ -58,7 +60,13 @@ export default async function Blogs() {
             </div>
           </Suspense>
         </div>
-      </Container>
+
+        <div className='flex flex-col items-center mt-10 md:mt-16'>
+          <Button variant='outline' rightIcon={<FiPlus />}>
+            Load more articles
+          </Button>
+        </div>
+      </div>
 
       <div>
         <FooterCentered

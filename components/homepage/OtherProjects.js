@@ -67,7 +67,7 @@ function OtherProjects() {
               whileTap={{ scale: 1.1 }}
               onClick={() => openurl(project.url)}>
               <OtherProject
-                key={index}
+                key={project.name}
                 value={project}
                 className=''
                 github={project.github}
@@ -76,9 +76,7 @@ function OtherProjects() {
                 title={project.title}
                 subtitle={project.subtitle}
                 description={project.description}
-                description1={project.with[1]}
-                description2={project.with[2]}
-                description3={project.with[3]}
+                tags={project.with}
               />
             </motion.div>
           );

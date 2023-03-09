@@ -1,52 +1,39 @@
 import React from "react";
-import { Button } from "@mantine/core";
 
 interface Props {
-  variant?:
-    | "filled"
-    | "outline"
-    | "light"
-    | "gradient"
-    | "white"
-    | "default"
-    | "subtle";
-  color?:
-    | "red"
-    | "blue"
-    | "green"
-    | "yellow"
-    | "teal"
-    | "pink"
-    | "purple"
-    | "gray"
-    | "dark"
-    | "cyan"
-    | "orange"
-    | "lime"
-    | "violet"
-    | "indigo"
-    | "fuchsia"
-    | "brown"
-    | "primary"
-    | "secondary"
-    | "success"
-    | "info"
-    | "warning"
-    | "danger"
-    | "light"
-    | "black"
-    | "transparent";
-  type?: "button" | "submit" | "reset";
+  variant?: "default" | "gradient" | "outline" | "text";
   rightIcon?: React.ReactNode;
-  children: React.ReactNode;
+  leftIcon?: React.ReactNode;
+  children?: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
 }
 
-function CustomButton({ variant, color, rightIcon, children }: Props) {
+function Button({
+  variant = "default",
+  rightIcon,
+  leftIcon,
+  children,
+  className,
+  onClick,
+}: Props) {
+  const variants = {
+    default: `bg-transparent flex items-center space-x-3 font-medium border border-teal-400 text-teal-400 rounded-md ${className}`,
+    gradient: `bg-gradient-to-r flex items-center space-x-3  from-teal-400 to-blue-500 text-white  rounded-md ${className}`,
+    outline: `bg-transparent flex items-center space-x-3 font-medium border border-teal-400 text-teal-400 rounded-md ${className}`,
+    text: `bg-transparent flex items-center space-x-3 font-medium text-teal-400 rounded-md ${className}`,
+  };
+
   return (
-    <Button variant={variant} radius={"md"} color={color} rightIcon={rightIcon}>
-      {children}
-    </Button>
+    <button
+      onClick={onClick}
+      className={`py-2 ${
+        variants && variants[variant] ? variants[variant] : variants["default"]
+      }`}>
+      <span>{leftIcon ? leftIcon : null}</span> <span>{children}</span>{" "}
+      <span>{rightIcon ? rightIcon : null}</span>
+    </button>
   );
 }
 
-export default CustomButton;
+export default Button;

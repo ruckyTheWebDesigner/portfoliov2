@@ -5,8 +5,6 @@ import Header from "@/components/blogs/Header";
 import Image from "next/image";
 import React from "react";
 import Author from "@/components/blog/Author";
-import MoreArticles from "../../../components/shared/MoreArticles";
-// import MoreArticles from "@/components/blog/MoreArticles";
 import type { Metadata } from "next";
 
 async function getArticle(slug: string) {
@@ -54,9 +52,9 @@ async function Blog({
     <div>
       <Header data={data} />
       <div>
-        <CustomContainer size={"md"}>
+        <div>
           <div className='space-y-10'>
-            <div className=''>
+            <div className='mx-auto max-w-3xl lg:max-w-4xl'>
               {data?.post.coverImage ? (
                 <Image
                   width={1000}
@@ -84,15 +82,17 @@ async function Blog({
                     <Image
                       alt='author'
                       src={data?.post.author.photo}
-                      width={40}
-                      height={40}
+                      width={35}
+                      height={35}
                       className='rounded-full'
                     />
-                    <p className='font-semibold'>{data?.post.author.name}</p>
+                    <p className='font-semibold text-sm'>
+                      {data?.post.author.name}
+                    </p>
                   </div>
                   <div>
                     <ul className='list-disc text-gray-300'>
-                      <li>
+                      <li className='text-sm'>
                         {new Date(data?.post.dateAdded).toLocaleDateString(
                           "en-US",
                           {
@@ -122,8 +122,6 @@ async function Blog({
                 {data?.post.tags.map((tag: { name: string }) => {
                   return (
                     <Card
-                      shadow='lg'
-                      radius={"md"}
                       key={tag.name}
                       className='h-full text-sm font-semibold'>
                       {tag.name}
@@ -142,7 +140,7 @@ async function Blog({
               </div>
             </section>
           </div>
-        </CustomContainer>
+        </div>
       </div>
     </div>
   );

@@ -12,39 +12,11 @@ import { FiInstagram, FiTwitter, FiYoutube } from "react-icons/fi";
 
 import logo from "../../assets/logo.png";
 
-const useStyles = createStyles((theme) => ({
-  footer: {
-    marginTop: 80,
-    borderTop: `1px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
-    }`,
-  },
-
-  inner: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: `${theme.spacing.md}px ${theme.spacing.md}px`,
-
-    [theme.fn.smallerThan("sm")]: {
-      flexDirection: "column",
-    },
-  },
-
-  links: {
-    [theme.fn.smallerThan("sm")]: {
-      marginTop: theme.spacing.lg,
-      marginBottom: theme.spacing.sm,
-    },
-  },
-}));
-
 interface FooterCenteredProps {
   links: { link: string; label: string }[];
 }
 
 export function FooterCentered({ links }: FooterCenteredProps) {
-  const { classes } = useStyles();
   const items = links.map((link) => (
     <Anchor<"a">
       color='dimmed'
@@ -58,28 +30,26 @@ export function FooterCentered({ links }: FooterCenteredProps) {
   ));
 
   return (
-    <div>
-      <Container className={classes.footer} size={"lg"}>
-        <div className={classes.inner}>
-          {/* <MantineLogo size={28} />
-           */}
+    <div className='container mx-auto lg:px-10 xl:px-20'>
+      <div className='mt-12 border-t dark:border-slate-600 py-4'>
+        <div className='flex flex-column md:flex-row justify-between'>
           <Image alt='logo' src={logo} width={50} height={100} />
 
-          <Group className={classes.links}>{items}</Group>
+          <div className='flex flex-col gap-4'>{items}</div>
 
-          <Group spacing='xs' position='right' noWrap>
-            <ActionIcon size='lg' variant='default' radius='xl'>
+          <div className='flex flex-wrap items-center gap-4'>
+            <div className='p-2 rounded-full border dark:border-slate-600'>
               <FiTwitter size={18} />
-            </ActionIcon>
-            <ActionIcon size='lg' variant='default' radius='xl'>
+            </div>
+            <div className='p-2 rounded-full border dark:border-slate-600'>
               <FiYoutube size={18} />
-            </ActionIcon>
-            <ActionIcon size='lg' variant='default' radius='xl'>
+            </div>
+            <div className='p-2 rounded-full border dark:border-slate-600'>
               <FiInstagram size={18} />
-            </ActionIcon>
-          </Group>
+            </div>
+          </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 }

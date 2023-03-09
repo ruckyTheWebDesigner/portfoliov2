@@ -20,12 +20,15 @@ const ARTICLE_QUERY = `
 
 `;
 
+const apiKey = "7df95377-352a-4181-8e01-08e6833f82c6";
+
 export const fetchArticles = async () => {
   const response = await fetch(endpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.HASHNODE_API_KEY}`,
+      // Authorization: `Bearer ${process.env.HASHNODE_API_KEY}`,
+      Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
       query: ARTICLE_QUERY,
@@ -36,8 +39,6 @@ export const fetchArticles = async () => {
 
   return data;
 };
-
-const apiKey = "7df95377-352a-4181-8e01-08e6833f82c6";
 
 export const fetchArticle = async (slug: string) => {
   const ARTICLE_QUERY_BY_SLUG = `

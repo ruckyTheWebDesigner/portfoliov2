@@ -38,7 +38,7 @@ function Projects() {
   // }, []);
 
   return (
-    <div className='space-y-6 md:space-y-8 lg:space-y-10'>
+    <div id='projects' className='space-y-6 md:space-y-8 lg:space-y-10'>
       <Divider
         my='xs'
         // color={"primary"}
@@ -73,10 +73,7 @@ function Projects() {
                 github={project.github}
                 name={project.name}
                 description={project.description}
-                with1={project.with[1]}
-                with2={project.with[2]}
-                with3={project.with[3]}
-                with4={project.with[4]}
+                tags={project.with}
               />
             </motion.div>
           );

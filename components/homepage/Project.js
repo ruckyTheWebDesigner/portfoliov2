@@ -1,31 +1,37 @@
 import { GoMarkGithub } from "react-icons/go";
 import { FiExternalLink } from "react-icons/fi";
-import { Card } from "@mantine/core";
+
+import Card from "../shared/Card";
 
 function Project(props) {
   function openurl(url) {
     window.open(url, "_blank");
   }
   return (
-    <Card className='cursor-pointer'>
-      <div
-        className='project-header mt-5 mb-4 min-h-full'
-        onClick={() => openurl(props.url)}>
-        <h5>
-          Featured Project <hr />
-        </h5>
+    <Card>
+      <div className='space-y-4' onClick={() => openurl(props.url)}>
+        <div className='space-y-2'>
+          <h5 className='text-teal-500 font-mono '>Featured Project</h5>
 
-        <h4 className='project-title mb-4'>{props.name}</h4>
-        <p>{props.description}</p>
-        <div className='d-flex justify-content-between flex-wrap align-items-center'>
-          <p>{props.with1}</p>
-          <p>{props.with2}</p>
-          <p>{props.with3}</p>
-          <p>{props.with4}</p>
+          <hr className='text-teal-500' />
+        </div>
+
+        <h4 className='text-xl lg:text-2xl font-semibold'>{props.name}</h4>
+        <p className='dark:text-slate-300 text-sm leading-relaxed'>
+          {props.description}
+        </p>
+        <div className='flex gap-4 justify-content-between flex-wrap align-items-center dark:text-slate-300 text-sm font-mono'>
+          {Object.values(props.tags).map((tag) => {
+            return (
+              <p key={tag} className='mx-2'>
+                {tag}
+              </p>
+            );
+          })}
         </div>
       </div>
 
-      <div className='d-flex mb-3'>
+      <div className='flex gap-4'>
         <a href={props.github} target='_blank' rel='noreferrer'>
           {" "}
           <GoMarkGithub className='project-icons icons' />

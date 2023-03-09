@@ -46,7 +46,7 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
   // );
 
   return (
-    <Container size={"lg"} mb={"lg"} className='space-x-4' py={"lg"}>
+    <div className='py-5 container mx-auto lg:px-10 xl:px-20'>
       <div className='flex items-center justify-between'>
         <div>
           <Link href={"/"}>
@@ -108,7 +108,7 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
           </div>
         </div>
       </div>
-    </Container>
+    </div>
   );
 }
 

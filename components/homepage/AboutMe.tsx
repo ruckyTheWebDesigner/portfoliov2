@@ -80,9 +80,9 @@ function AboutMe() {
         }
       />
 
-      <div className='flex gap-4 md:gap-10 flex-col md:flex-row'>
+      <div className='grid grid-cols-1 md:grid-cols-8 gap-6 md:gap-10 lg:gap-14'>
         <div
-          className='about-content d-flex flex-column flex-md-row flex-lg-row'
+          className='about-content d-flex flex-column flex-md-row flex-lg-row col md:col-span-5'
           ref={revealRefs}>
           <div className='about-body space-y-3 md:space-y-5'>
             <p>
@@ -116,11 +116,13 @@ function AboutMe() {
           </div>
         </div>
 
-        <div className='container photo-content'>
-          <div className='box red'></div>
-          <div className='box green relative'>
-            <Image src={photo} alt='rukewe joseph' className='rounded-md' />
-          </div>
+        <div className='relative md:col-span-3'>
+          {/* <div className='border border-teal-500 bg-transparent h-24 absolute left-4'></div> */}
+          <Image
+            src={photo}
+            alt='rukewe joseph'
+            className='rounded-md aspect-square'
+          />
         </div>
       </div>
     </div>

@@ -1,13 +1,6 @@
-import {
-  TextInput,
-  Textarea,
-  SimpleGrid,
-  Group,
-  Title,
-  Button,
-  Container,
-} from "@mantine/core";
-// import { useForm } from "@mantine/form";
+import Button from "../shared/Button";
+import Input from "../shared/Input";
+import { TextArea } from "../shared/Input";
 
 function GetInTouchSimple() {
   // const form = useForm({
@@ -25,9 +18,9 @@ function GetInTouchSimple() {
   // });
 
   return (
-    <Container size={"xs"} className='space-y-16 sm:space-y-24 md:space-y-32'>
+    <div className='space-y-16 sm:space-y-24 md:space-y-32 max-w-md mx-auto  flex flex-col items-center'>
       <form className='text-center'>
-        <div className='space-y-4'>
+        <div className='space-y-4 mb-6'>
           <div
             className='abouttitle text-lg md:text-xl flex items-center justify-center space-x-2'
             id='#About'>
@@ -35,69 +28,24 @@ function GetInTouchSimple() {
             <h4 className='about text-teal-400'>{`What's Next?`}</h4>
           </div>
 
-          <Title
-            order={2}
-            size='h1'
-            sx={(theme) => ({
-              fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-            })}
-            weight={900}
-            align='center'>
-            Get in touch
-          </Title>
+          <h6>Get in touch</h6>
 
           <p>
             {`I'm open to new opportunities. Whether you have a question or just want to say hi.`}
           </p>
         </div>
 
-        <SimpleGrid
-          cols={2}
-          mt='xl'
-          breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-          <TextInput
-            label='Name'
-            placeholder='Your name'
-            name='name'
-            variant='filled'
-            // {...form.getInputProps("name")}
-          />
-          <TextInput
-            label='Email'
-            placeholder='Your email'
-            name='email'
-            variant='filled'
-            // {...form.getInputProps("email")}
-          />
-        </SimpleGrid>
+        <div className='flex flex-col gap-4'>
+          <Input placeholder='Name' />
+          <Input placeholder='Email Address' />
+          <TextArea placeholder='Message' />
 
-        <TextInput
-          label='Subject'
-          placeholder='Subject'
-          mt='md'
-          name='subject'
-          variant='filled'
-          // {...form.getInputProps("subject")}
-        />
-        <Textarea
-          mt='md'
-          label='Message'
-          placeholder='Your message'
-          maxRows={10}
-          minRows={5}
-          autosize
-          name='message'
-          variant='filled'
-          // {...form.getInputProps("subject")}
-        />
-
-        <Group position='center' mt='xl'>
-          <Button variant='outline' type='submit' size='md'>
-            Send message
-          </Button>
-        </Group>
+          <div>
+            <Button>{`Send Message`}</Button>
+          </div>
+        </div>
       </form>
-    </Container>
+    </div>
   );
 }
 

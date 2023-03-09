@@ -1,38 +1,41 @@
-// import { FaRegWindowRestore } from "react-icons/fa";
-import { Card } from "@mantine/core";
 import { AiOutlineFolder } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
 import { GoMarkGithub } from "react-icons/go";
+
+import Card from "../shared/Card";
 
 function OtherProject(props) {
   function openurl(url) {
     window.open(url, "_blank");
   }
-
   return (
     <Card className='cursor-pointer'>
-      <div className='d-flex justify-content-between mt-4 mb-5 align-items-center'>
-        <AiOutlineFolder className='others-icon1' />
-        <div className='d-flex'>
+      <div className='flex w-full justify-between mt-4 mb-5 items-center'>
+        <AiOutlineFolder className='text-3xl text-teal-400' />
+        <div className='flex gap-4 text-lg'>
           <a href={props.github} target='_blank' rel='noreferrer' className=''>
-            <GoMarkGithub className='others-icon2 me-3' />
+            <GoMarkGithub />
           </a>
 
           <a href={props.url} target='_blank' rel='noreferrer'>
-            <FiExternalLink className='others-icon2' />
+            <FiExternalLink />
           </a>
         </div>
       </div>
-      <div className='' onClick={() => openurl(props.url)}>
-        <h3 className=''>{props.name}</h3>
-        <h4>{props.title}</h4>
-        <h6>{props.subtitle}</h6>
-        <p className='on-active'>{props.description}</p>
+      <div className='space-y-2' onClick={() => openurl(props.url)}>
+        <h3 className='text-lg font-semibold'>{props.name}</h3>
+        <p className='dark:text-slate-300 text-sm leading-relaxed'>
+          {props.description}
+        </p>
       </div>
-      <div className='d-flex mono'>
-        <p>{props.description1}</p>
-        <p className='mx-2'>{props.description2}</p>
-        <p>{props.description3}</p>
+      <div className=' flex font-mono dark:text-slate-300'>
+        {Object.values(props.tags).map((tag) => {
+          return (
+            <p key={tag} className='mx-2'>
+              {tag}
+            </p>
+          );
+        })}
       </div>
     </Card>
   );

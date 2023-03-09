@@ -6,11 +6,13 @@ import { FiTwitter, FiGithub } from "react-icons/fi";
 function Sidebar() {
   return (
     <Container size={"lg"} className='relative'>
-      <div className='fixed bottom-0 right-3 lg:right-24 after:w-3 after:h-4'>
+      <div
+        id='email'
+        className='fixed font-mono bottom-2 right-3 lg:right-24 text-md'>
         <a href='/'>contact@rukewe@gmail.com</a>
       </div>
 
-      <div className='fixed bottom-0 left-3 lg:left-24'>
+      <div className='fixed bottom-2 left-3 lg:left-24 text-xl'>
         <a
           href='https://twitter.com/Ruckysleek'
           target='_blank'
@@ -25,7 +27,7 @@ function Sidebar() {
         </a>
       </div>
 
-      <div className='flex flex-col items-center py-8'>
+      <div className='flex flex-col items-center py-4 dark:text-slate-400'>
         <div className='flex items-center'>
           <a
             href='https://twitter.com/Ruckysleek'

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Card, Text } from "@mantine/core";
+import Card from "./Card";
 import { FiArrowRight } from "react-icons/fi";
 
 import Button from "./Button";
@@ -15,28 +15,25 @@ function BlogCard({
   description,
 }: Props & { children?: React.ReactNode }) {
   return (
-    <Card
-      sx={{
-        height: "100%",
-        transition: "all 0.2s ease-in-out",
-        "&:hover": {
-          transform: "translateY(-5px)",
-        },
-      }}
-      shadow='xl'
-      className='flex flex-col justify-between items-start leading-relaxed group  space-y-2 lg:space-y-4 cursor-pointer hover:shadow-xl p-4 lg:p-6'
-      radius={"md"}>
+    <Card>
       <div className='space-y-4 '>
-        <span className=' text-xl lg:text-2xl font-semibold  group-hover:text-teal-400'>
+        <span className='text-slate-800 dark:text-slate-200 text-xl lg:text-2xl font-semibold  group-hover:text-teal-500'>
           {title}
         </span>
 
-        <p className='font-medium'>{description.slice(0, 150).concat("...")}</p>
-      </div>
+        <p className='font-medium text-sm text-slate-800 dark:text-slate-200'>
+          {description.slice(0, 150).concat("...")}
+        </p>
 
-      <Button variant='gradient' rightIcon={<FiArrowRight className='' />}>
-        Read More
-      </Button>
+        <div>
+          <Button
+            className='mt-6'
+            variant='text'
+            rightIcon={<FiArrowRight className='' />}>
+            Read More
+          </Button>
+        </div>
+      </div>
     </Card>
   );
 }
