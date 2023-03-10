@@ -11,7 +11,7 @@ function OtherProject(props) {
   return (
     <Card className='cursor-pointer'>
       <div className='flex w-full justify-between mt-4 mb-5 items-center'>
-        <AiOutlineFolder className='text-3xl text-teal-400' />
+        <AiOutlineFolder className='text-3xl text-teal-500' />
         <div className='flex gap-4 text-lg'>
           <a href={props.github} target='_blank' rel='noreferrer' className=''>
             <GoMarkGithub />

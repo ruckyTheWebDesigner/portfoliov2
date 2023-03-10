@@ -49,7 +49,7 @@ function OtherProjects() {
         <h4 className='text-lg md:text-2xl font-semibold'>
           Other Noteworthy Projects
         </h4>
-        <h6 className='text-teal-400 '>view the archive</h6>
+        <h6 className='text-teal-500 '>view the archive</h6>
       </div>
       <div className='grid grid-cols-1 gap-4 md:gap-6 sm:grid-cols-2'>
         {OtherprojectsNotes.map((project, index) => {

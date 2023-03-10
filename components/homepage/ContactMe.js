@@ -25,7 +25,7 @@ function GetInTouchSimple() {
             className='abouttitle text-lg md:text-xl flex items-center justify-center space-x-2'
             id='#About'>
             <h6 className=''>03.</h6>
-            <h4 className='about text-teal-400'>{`What's Next?`}</h4>
+            <h4 className='about text-teal-500'>{`What's Next?`}</h4>
           </div>
 
           <h6>Get in touch</h6>

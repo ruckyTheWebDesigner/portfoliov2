@@ -91,7 +91,7 @@ async function Blog({
                     </p>
                   </div>
                   <div>
-                    <ul className='list-disc text-gray-300'>
+                    <ul className='list-disc'>
                       <li className='text-sm'>
                         {new Date(data?.post.dateAdded).toLocaleDateString(
                           "en-US",

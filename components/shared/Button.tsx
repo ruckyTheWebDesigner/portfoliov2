@@ -18,10 +18,10 @@ function Button({
   onClick,
 }: Props) {
   const variants = {
-    default: `bg-transparent flex items-center space-x-3 font-medium border border-teal-400 text-teal-400 rounded-md ${className}`,
-    gradient: `bg-gradient-to-r flex items-center space-x-3  from-teal-400 to-blue-500 text-white  rounded-md ${className}`,
-    outline: `bg-transparent flex items-center space-x-3 font-medium border border-teal-400 text-teal-400 rounded-md ${className}`,
-    text: `bg-transparent flex items-center space-x-3 font-medium text-teal-400 rounded-md ${className}`,
+    default: `bg-transparent flex items-center space-x-3 font-medium border border-teal-500 text-teal-400 rounded-md ${className}`,
+    gradient: `bg-gradient-to-r flex items-center space-x-3  from-teal-500 to-blue-500 text-white  rounded-md ${className}`,
+    outline: `bg-transparent flex items-center space-x-3 font-medium border border-teal-500 text-teal-500 rounded-md ${className}`,
+    text: `bg-transparent flex items-center space-x-3 font-medium text-teal-500 rounded-md ${className}`,
   };
 
   return (

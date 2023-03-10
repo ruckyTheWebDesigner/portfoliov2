@@ -43,7 +43,7 @@ function Hero() {
       initial='hidden'
       animate='visible'
       variants={list}>
-      <motion.h1 className=' text-teal-400 gs_reveal' variants={item}>
+      <motion.h1 className=' text-teal-500 gs_reveal' variants={item}>
         Hi, my name is
       </motion.h1>
       <motion.h2 className='text-5xl font-semibold gs_reveal' variants={item}>
@@ -60,7 +60,7 @@ function Hero() {
         I’m a web developer specializing in building immersive and exceptional
         web applications. Currently, I’m focused on building accessible,
         human-centered products that are easy to use with{" "}
-        <span className='text-teal-400'>user-friendly experiences.</span>
+        <span className='text-teal-500'>user-friendly experiences.</span>
       </motion.h6>
       {/* <motion.button
         className='button'

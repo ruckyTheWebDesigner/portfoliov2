@@ -8,11 +8,11 @@ function Sidebar() {
     <Container size={"lg"} className='relative'>
       <div
         id='email'
-        className='fixed font-mono bottom-2 right-3 lg:right-24 text-md'>
+        className='hidden md:block fixed font-mono bottom-2 right-3 lg:right-24 text-md'>
         <a href='/'>contact@rukewe@gmail.com</a>
       </div>
 
-      <div className='fixed bottom-2 left-3 lg:left-24 text-xl'>
+      <div className='hidden md:block fixed bottom-2 left-3 lg:left-24 text-xl'>
         <a
           href='https://twitter.com/Ruckysleek'
           target='_blank'

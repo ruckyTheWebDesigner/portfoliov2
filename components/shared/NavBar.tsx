@@ -1,10 +1,12 @@
 "use client";
 
-import { Container, Tooltip, useMantineColorScheme } from "@mantine/core";
+import { Container, Tooltip } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useColorScheme, useMediaQuery } from "@mantine/hooks";
+
+import { AiOutlineMenu } from "react-icons/ai";
 
 import logo from "../../assets/logo.png";
 import Button from "./Button";
@@ -15,25 +17,26 @@ import { AiFillSound } from "react-icons/ai";
 import { GiSpeakerOff, GiSpeaker } from "react-icons/gi";
 import { AnimatePresence } from "framer-motion";
 
+import Drawer from "./Drawer";
+import { IoOpen } from "react-icons/io5";
+
 interface NavBarProps {
   colorScheme?: string;
   toggleColorScheme?: () => void;
 }
 function NavBar() {
   const [sound, setSound] = React.useState(true);
-  const mobile = useMediaQuery("(max-width: 700px)");
   // const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
     <div>
-      {mobile ? (
+      <div className='md:hidden block'>
         <MobileNavBar />
-      ) : (
-        <DesktopNavBar
-        // colorScheme={colorScheme}
-        // toggleColorScheme={toggleColorScheme}
-        />
-      )}
+      </div>
+
+      <div className='hidden md:block'>
+        <DesktopNavBar />
+      </div>
     </div>
   );
 }
@@ -57,17 +60,20 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
           <div className='flex space-x-5 md:space-x-8 lg:space-x-12 items-center'>
             <Link href={"/#about-me"}>
               <nav className='flex items-center'>
-                <h5 className='font-semibold mr-2'>01.</h5> <h4>About Me</h4>
+                <h5 className='font-semibold mr-2 text-teal-500'>01.</h5>{" "}
+                <h4>About Me</h4>
               </nav>
             </Link>
             <Link href={"/blogs"}>
               <nav className='flex items-center'>
-                <h5 className='font-semibold mr-2'>02.</h5> <h4>Blogs</h4>
+                <h5 className='font-semibold mr-2 text-teal-500'>02.</h5>{" "}
+                <h4>Blogs</h4>
               </nav>
             </Link>
             <Link href={"/#projects"}>
               <nav className='flex items-center'>
-                <h5 className='font-semibold mr-2'>03.</h5> <h4>Projects</h4>
+                <h5 className='font-semibold mr-2 text-teal-500'>03.</h5>{" "}
+                <h4>Projects</h4>
               </nav>
             </Link>
 
@@ -114,9 +120,42 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
 
 function MobileNavBar() {
   return (
-    <Container mb={"lg"} className='space-x-4' py={"lg"}>
-      MobileNavBar
-    </Container>
+    <>
+      <div className='py-4 px-4 flex items-center justify-between'>
+        <div>
+          <Link href={"/"}>
+            <Image alt='logo' src={logo} width={50} height={100} />
+          </Link>
+        </div>
+
+        <Drawer openButton={<AiOutlineMenu size={30} />} open={true}>
+          <div className='flex flex-col items-center justify-center min-h-[70vh] gap-8'>
+            <Link href={"/#about-me"}>
+              <nav className='flex flex-col items-center'>
+                <h5 className='font-semibold mr-2 text-teal-500'>01.</h5>{" "}
+                <h4 className='dark:text-slate-300'>About Me</h4>
+              </nav>
+            </Link>
+            <Link href={"/blogs"}>
+              <nav className='flex flex-col  items-center'>
+                <h5 className='font-semibold mr-2 text-teal-500'>02.</h5>{" "}
+                <h4 className='dark:text-slate-300'>Blogs</h4>
+              </nav>
+            </Link>
+            <Link href={"/#projects"}>
+              <nav className='flex flex-col  items-center'>
+                <h5 className='font-semibold mr-2 text-teal-500'>03.</h5>{" "}
+                <h4 className='dark:text-slate-300'>Projects</h4>
+              </nav>
+            </Link>
+
+            <div>
+              <Button variant='outline'>Resume</Button>
+            </div>
+          </div>
+        </Drawer>
+      </div>
+    </>
   );
 }
 export default NavBar;

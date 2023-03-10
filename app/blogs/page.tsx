@@ -25,7 +25,7 @@ export default async function Blogs() {
       <NavBar />
       <div className='py-6 lg:py-10 container mx-auto px-4 lg:px-14 xl:px-36'>
         <div className='mb-6 flex justify-between items-center'>
-          <h6 className='text-lg font-medium'> Latest Blogs</h6>
+          <h6 className='text-lg font-medium text-teal-500'> Latest Blogs</h6>
 
           <Suspense
             fallback={<Skeleton height={"30px"} width={"100px"} radius='md' />}>
