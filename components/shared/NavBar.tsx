@@ -8,7 +8,7 @@ import { useColorScheme, useMediaQuery } from "@mantine/hooks";
 
 import { AiOutlineMenu } from "react-icons/ai";
 
-import logo from "../../assets/logo.png";
+import logo from "@/assets/logo.png";
 import Button from "./Button";
 
 import { FiMoon, FiSun } from "react-icons/fi";

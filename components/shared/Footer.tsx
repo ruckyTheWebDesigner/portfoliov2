@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import { FiInstagram, FiTwitter, FiYoutube } from "react-icons/fi";
 
-import logo from "../../assets/logo.png";
+import logo from "@/assets/logo.png";
 
 interface FooterCenteredProps {
   links: { link: string; label: string }[];
