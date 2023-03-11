@@ -12,7 +12,7 @@ function OtherProject(props) {
     <Card className='cursor-pointer'>
       <div className='flex w-full justify-between mt-4 mb-5 items-center'>
         <AiOutlineFolder className='text-3xl text-teal-500' />
-        <div className='flex gap-4 text-lg'>
+        <div className='flex gap-4 text-lg dark:text-slate-300'>
           <a href={props.github} target='_blank' rel='noreferrer' className=''>
             <GoMarkGithub />
           </a>
@@ -23,12 +23,14 @@ function OtherProject(props) {
         </div>
       </div>
       <div className='space-y-2' onClick={() => openurl(props.url)}>
-        <h3 className='text-lg font-semibold'>{props.name}</h3>
-        <p className='dark:text-slate-300 text-sm leading-relaxed'>
+        <h3 className='text-lg font-semibold dark:text-slate-300'>
+          {props.name}
+        </h3>
+        <p className='dark:text-slate-400 text-sm leading-relaxed'>
           {props.description}
         </p>
       </div>
-      <div className=' flex font-mono dark:text-slate-300'>
+      <div className=' flex font-mono dark:text-slate-400'>
         {Object.values(props.tags).map((tag) => {
           return (
             <p key={tag} className='mx-2'>

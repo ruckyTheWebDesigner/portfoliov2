@@ -18,10 +18,7 @@ function CustomDrawer({
         // className='bg-gray-800'
         sx={{
           " .mantine-xm7qi9": {
-            // backgroundColor: "#112240",
-          },
-          "&dark .mantine-xm7qi9": {
-            backgroundColor: "#112240",
+            backgroundColor: "#134e4a",
           },
         }}
         //   withCloseButton

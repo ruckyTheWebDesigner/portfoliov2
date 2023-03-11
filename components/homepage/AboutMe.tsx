@@ -75,14 +75,14 @@ function AboutMe() {
             className='abouttitle text-lg md:text-xl flex items-center space-x-2'
             id='#About'>
             <h6 className='text-teal-400'>01.</h6>
-            <h4 className='about'>About Me</h4>
+            <h4 className='about dark:text-slate-300'>About Me</h4>
           </div>
         }
       />
 
       <div className='grid grid-cols-1 md:grid-cols-8 gap-6 md:gap-10 lg:gap-14'>
         <div
-          className='about-content d-flex flex-column flex-md-row flex-lg-row col md:col-span-5'
+          className='about-content d-flex flex-column flex-md-row flex-lg-row col md:col-span-5 dark:text-slate-500'
           ref={revealRefs}>
           <div className='about-body space-y-3 md:space-y-5'>
             <p>
@@ -121,7 +121,7 @@ function AboutMe() {
           <Image
             src={photo}
             alt='rukewe joseph'
-            className='rounded-md aspect-square'
+            className='rounded-md aspect-square opacity-90'
           />
         </div>
       </div>

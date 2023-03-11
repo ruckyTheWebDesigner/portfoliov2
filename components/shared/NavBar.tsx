@@ -50,7 +50,7 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
   // );
 
   return (
-    <div className='py-5 container mx-auto lg:px-10 xl:px-20'>
+    <div className='py-6 container mx-auto lg:px-10 xl:px-20'>
       <div className='flex items-center justify-between'>
         <div>
           <Link href={"/"}>
@@ -69,7 +69,7 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
             <Link href={"/blogs"}>
               <nav className='flex items-center'>
                 <h5 className='font-semibold mr-2 text-teal-500'>02.</h5>{" "}
-                <h4>Blogs</h4>
+                <h4 className=''>Blogs</h4>
               </nav>
             </Link>
             <Link href={"/#projects"}>
@@ -144,7 +144,7 @@ function MobileNavBar() {
       <div className='py-4 px-4 flex items-center justify-between'>
         <div>
           <Link href={"/"}>
-            <h1 className='font-bold text-3xl'>LOGO</h1>
+            <h1 className='font-bold text-3xl font-mono'>RY</h1>
             {/* <Image alt='logo' src={logo} width={50} height={100} /> */}
           </Link>
         </div>
@@ -154,10 +154,10 @@ function MobileNavBar() {
             {NavLinks.map((link) => (
               <Link key={link.title} href={link.link}>
                 <nav className='flex flex-col items-center'>
-                  <h5 className='font-semibold mr-2 text-teal-500'>
+                  <h5 className='font-semibold mr-2 text-teal-500 '>
                     {link.number}
                   </h5>{" "}
-                  <h4 className=''>{link.title}</h4>
+                  <h4 className='text-slate-300'>{link.title}</h4>
                 </nav>
               </Link>
             ))}

@@ -47,7 +47,7 @@ function Projects() {
             className='abouttitle text-lg md:text-xl flex items-center space-x-2'
             id='projects'>
             <h6 className='text-teal-400'>02.</h6>
-            <h4 className='about'>{`Some Things I've Built`}</h4>
+            <h4 className='about dark:text-slate-300'>{`Some Things I've Built`}</h4>
           </div>
         }
       />
