@@ -13,11 +13,7 @@ function Header({ data }: any) {
   const [theme, setTheme] = React.useState("light");
   const [sound, setSound] = React.useState(true);
   return (
-    <Container
-      size={"lg"}
-      mb={"lg"}
-      py={"xl"}
-      className=' flex items-center justify-between'>
+    <div className=' flex items-center justify-between py-5 container mx-auto lg:px-10 xl:px-20 px-4 mb-3'>
       <div className=' flex items-center space-x-4 lg:space-x-8'>
         <div>
           <Tooltip label={`Blog's Home`}>
@@ -74,7 +70,7 @@ function Header({ data }: any) {
           </div>
         </AnimatePresence>
       </div>
-    </Container>
+    </div>
   );
 }
 

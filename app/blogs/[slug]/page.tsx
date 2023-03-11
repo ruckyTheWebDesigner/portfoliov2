@@ -1,5 +1,4 @@
 import styles from "./styles.module.css";
-import CustomContainer from "@/components/shared/Container";
 import Card from "@/components/shared/Card";
 import Header from "@/components/blogs/Header";
 import Image from "next/image";
@@ -7,15 +6,7 @@ import React from "react";
 import Author from "@/components/blog/Author";
 import type { Metadata } from "next";
 
-async function getArticle(slug: string) {
-  const response = await fetch(
-    `http://localhost:3000/api/article?slug=${slug}`
-  );
-
-  const { data } = await response.json();
-
-  return data;
-}
+import { fetchArticle } from "@/utils/articles";
 
 export async function generateMetadata({
   params,
@@ -24,16 +15,16 @@ export async function generateMetadata({
     slug: string;
   };
 }): Promise<Metadata> {
-  const data = await getArticle(params.slug);
+  const { data } = await fetchArticle(params.slug);
 
   return {
-    title: data?.post.title,
-    description: data?.post.brief,
+    title: data?.post?.title,
+    description: data?.post?.brief,
     authors: {
-      name: data?.post.author.name,
-      url: data?.post.author.url,
+      name: data?.post.author?.name,
+      url: data?.post.author?.url,
     },
-    publisher: data?.post.author.name,
+    publisher: data?.post.author?.name,
   };
 }
 
@@ -46,7 +37,7 @@ async function Blog({
 }) {
   const { slug } = params;
 
-  const data = await getArticle(slug);
+  const { data } = await fetchArticle(slug);
 
   return (
     <div>
@@ -54,7 +45,7 @@ async function Blog({
       <div>
         <div>
           <div className='space-y-10'>
-            <div className='mx-auto max-w-3xl lg:max-w-4xl'>
+            <div className='mx-auto max-w-3xl lg:max-w-4xl px-4'>
               {data?.post.coverImage ? (
                 <Image
                   width={1000}
@@ -67,11 +58,7 @@ async function Blog({
               ) : null}
             </div>
 
-            <CustomContainer
-              py={"lg"}
-              my={"lg"}
-              size={"sm"}
-              className='text-center'>
+            <div className='text-center max-w-2xl lg:max-w-4xl mx-auto'>
               <div className='space-y-6 lg:space-y-10 flex flex-col items-center px-4'>
                 <h1 className='text-2xl md:text-3xl lg:text-4xl font-black leading-10 '>
                   {data?.post.title}
@@ -106,16 +93,9 @@ async function Blog({
                   </div>
                 </div>
               </div>
-            </CustomContainer>
+            </div>
 
-            <CustomContainer size={"sm"}>
-              <div
-                className={styles.content}
-                dangerouslySetInnerHTML={{
-                  __html: data?.post.content,
-                }}
-              />
-            </CustomContainer>
+            <MyComponent html={data?.post.content} />
 
             <section className='space-y-10 lg:space-y-14'>
               <div className='flex gap-4 justify-center flex-wrap'>
@@ -143,6 +123,14 @@ async function Blog({
         </div>
       </div>
     </div>
+  );
+}
+
+function MyComponent(props: { html: string }) {
+  return (
+    <div
+      className={`${styles.content} max-w-2xl lg:max-w-4xl mx-auto px-4`}
+      dangerouslySetInnerHTML={{ __html: props.html }}></div>
   );
 }
 

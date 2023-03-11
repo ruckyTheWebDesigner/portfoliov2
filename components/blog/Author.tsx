@@ -1,7 +1,5 @@
-"use client";
-
+import Image from "next/image";
 import React, { Suspense } from "react";
-import CustomAvatar from "../shared/Avatar";
 interface AuthorProps {
   name: string;
   photo: string;
@@ -11,8 +9,17 @@ function Author({ name, photo }: AuthorProps) {
   return (
     <div className='flex items-center space-x-6'>
       <div>
-        <Suspense fallback={<CustomAvatar size={60} radius={100} />}>
-          <CustomAvatar src={photo} alt={name} size={60} radius={100} />
+        <Suspense
+          fallback={
+            <div className='w-10 h-10 rounded-full bg-gray-200 animate-pulse' />
+          }>
+          <Image
+            alt={name}
+            src={photo}
+            width={40}
+            height={40}
+            className='rounded-full'
+          />
         </Suspense>
       </div>
       <div className='leading-relaxed'>

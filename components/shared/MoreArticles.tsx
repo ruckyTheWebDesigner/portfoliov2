@@ -14,7 +14,7 @@ function MoreArticles({ posts }: { posts: any }) {
           More Articles{" "}
         </span>
       </div>
-      <div className='grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 items-center'>
+      <div className='grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 items-center'>
         {posts?.slice(0, 5).map((article: any) => {
           return (
             <Link href={`/blogs/${article.slug}`} key={article._id}>

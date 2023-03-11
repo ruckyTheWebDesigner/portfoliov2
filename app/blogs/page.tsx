@@ -8,9 +8,10 @@ import { Suspense } from "react";
 import { FooterCentered } from "@/components/shared/Footer";
 import { FiPlus } from "react-icons/fi";
 
+import { fetchArticles } from "@/utils/articles";
+
 export default async function Blogs() {
-  const response = await fetch("http://localhost:3000/api/articles");
-  const data = await response.json();
+  const data = await fetchArticles();
 
   const {
     data: {

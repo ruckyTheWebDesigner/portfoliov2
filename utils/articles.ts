@@ -67,7 +67,6 @@ export const fetchArticle = async (slug: string) => {
     content
     brief
     coverImage
-    isAnonymous
     tags {
       name
     }

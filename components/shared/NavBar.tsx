@@ -150,7 +150,7 @@ function MobileNavBar() {
         <Drawer openButton={<AiOutlineMenu size={30} />} open={true}>
           <div className='flex flex-col items-center justify-center min-h-[70vh] gap-8'>
             {NavLinks.map((link) => (
-              <Link key={link.title} href={"/#about-me"}>
+              <Link key={link.title} href={link.link}>
                 <nav className='flex flex-col items-center'>
                   <h5 className='font-semibold mr-2 text-teal-500'>
                     {link.number}

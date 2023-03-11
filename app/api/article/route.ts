@@ -9,6 +9,7 @@ export async function GET(request: Request) {
   //   console.log(url.searchParams.get("slug"));
 
   const slug = url.searchParams.get("slug");
+
   const articles = await fetchArticle(slug as string);
   return new Response(JSON.stringify(articles), {
     headers: {

@@ -18,7 +18,7 @@
 .content pre {
   background-color: #0f172a;
   color: #fafafa;
-  padding: 1.8em;
+  padding: 2em;
   border-radius: 0.5em;
   /* margin-bottom: 2.5em; */
   word-break: break-word;
@@ -39,6 +39,7 @@
 @media (min-width: 768px) {
   .content pre {
     margin: 3em 0;
+    max-width: fit-content;
   }
 }
 
