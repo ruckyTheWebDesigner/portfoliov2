@@ -15,8 +15,12 @@ function CustomDrawer({
   return (
     <>
       <Drawer
+        // className='bg-gray-800'
         sx={{
           " .mantine-xm7qi9": {
+            // backgroundColor: "#112240",
+          },
+          "&dark .mantine-xm7qi9": {
             backgroundColor: "#112240",
           },
         }}

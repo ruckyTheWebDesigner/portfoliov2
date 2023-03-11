@@ -1,4 +1,5 @@
 import "./globals.css";
+import ThemeProvider from "@/context/ThemeProvider";
 export const metadata = {
   title: "Rukewe Joseph | Javascript Developer",
   description:

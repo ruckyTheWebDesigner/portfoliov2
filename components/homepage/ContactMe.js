@@ -30,7 +30,7 @@ function GetInTouchSimple() {
 
           <h6>Get in touch</h6>
 
-          <p>
+          <p className='px-6'>
             {`I'm open to new opportunities. Whether you have a question or just want to say hi.`}
           </p>
         </div>

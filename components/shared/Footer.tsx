@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  createStyles,
-  Anchor,
-  Group,
-  ActionIcon,
-  Container,
-} from "@mantine/core";
+import { Anchor } from "@mantine/core";
 import Image from "next/image";
 import { FiInstagram, FiTwitter, FiYoutube } from "react-icons/fi";
 

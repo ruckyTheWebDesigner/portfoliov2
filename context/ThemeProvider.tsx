@@ -29,17 +29,13 @@ export default function Demo({ children }: { children: React.ReactNode }) {
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
   return (
-    <ColorSchemeProvider
-      colorScheme={preferredColorScheme}
-      toggleColorScheme={toggleColorScheme}>
-      <MantineProvider
-        emotionCache={rtlCache}
-        theme={{ dir: "rtl", colorScheme: "dark", components: {} }}
-        // theme={{ colorScheme: "dark", components: {} }}
-        withGlobalStyles
-        withNormalizeCSS>
-        {children}
-      </MantineProvider>
-    </ColorSchemeProvider>
+    <MantineProvider
+      // emotionCache={rtlCache}
+      // theme={{ colorScheme: colorScheme, components: {} }}
+      // theme={{ colorScheme: "dark", components: {} }}
+      withGlobalStyles
+      withNormalizeCSS>
+      {children}
+    </MantineProvider>
   );
 }

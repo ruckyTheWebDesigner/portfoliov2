@@ -75,7 +75,7 @@ function AboutMe() {
             className='abouttitle text-lg md:text-xl flex items-center space-x-2'
             id='#About'>
             <h6 className='text-teal-400'>01.</h6>
-            <h4 className='about'>About Us</h4>
+            <h4 className='about'>About Me</h4>
           </div>
         }
       />

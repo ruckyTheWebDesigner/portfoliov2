@@ -19,6 +19,7 @@ import { AnimatePresence } from "framer-motion";
 
 import Drawer from "./Drawer";
 import { IoOpen } from "react-icons/io5";
+import { GrClose } from "react-icons/gr";
 
 interface NavBarProps {
   colorScheme?: string;
@@ -118,6 +119,24 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
   );
 }
 
+const NavLinks = [
+  {
+    link: "/#about-me",
+    title: "About Me",
+    number: "01.",
+  },
+  {
+    link: "/blogs",
+    title: "Blogs",
+    number: "02.",
+  },
+  {
+    link: "/#projects",
+    title: "Projects",
+    number: "03.",
+  },
+];
+
 function MobileNavBar() {
   return (
     <>
@@ -130,25 +149,16 @@ function MobileNavBar() {
 
         <Drawer openButton={<AiOutlineMenu size={30} />} open={true}>
           <div className='flex flex-col items-center justify-center min-h-[70vh] gap-8'>
-            <Link href={"/#about-me"}>
-              <nav className='flex flex-col items-center'>
-                <h5 className='font-semibold mr-2 text-teal-500'>01.</h5>{" "}
-                <h4 className='dark:text-slate-300'>About Me</h4>
-              </nav>
-            </Link>
-            <Link href={"/blogs"}>
-              <nav className='flex flex-col  items-center'>
-                <h5 className='font-semibold mr-2 text-teal-500'>02.</h5>{" "}
-                <h4 className='dark:text-slate-300'>Blogs</h4>
-              </nav>
-            </Link>
-            <Link href={"/#projects"}>
-              <nav className='flex flex-col  items-center'>
-                <h5 className='font-semibold mr-2 text-teal-500'>03.</h5>{" "}
-                <h4 className='dark:text-slate-300'>Projects</h4>
-              </nav>
-            </Link>
-
+            {NavLinks.map((link) => (
+              <Link key={link.title} href={"/#about-me"}>
+                <nav className='flex flex-col items-center'>
+                  <h5 className='font-semibold mr-2 text-teal-500'>
+                    {link.number}
+                  </h5>{" "}
+                  <h4 className=''>{link.title}</h4>
+                </nav>
+              </Link>
+            ))}
             <div>
               <Button variant='outline'>Resume</Button>
             </div>
