@@ -1,6 +1,7 @@
 import React from "react";
 import Gif from "../../assets/Book.gif";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 function Loading() {
   return (
@@ -10,7 +11,7 @@ function Loading() {
         opacity: 0.9,
       }}
       transition={{ ease: "easeOut", duration: 3 }}>
-      <img className='loading' src={Gif} alt='loading' />
+      <Image className='loading' src={Gif} alt='loading' />
     </motion.div>
   );
 }

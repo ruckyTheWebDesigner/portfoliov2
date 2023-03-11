@@ -4,7 +4,7 @@ import { Anchor } from "@mantine/core";
 import Image from "next/image";
 import { FiInstagram, FiTwitter, FiYoutube } from "react-icons/fi";
 
-// import logo from "@/assets/logo.png";
+import logo from "../../assets/logo.png";
 
 interface FooterCenteredProps {
   links: { link: string; label: string }[];
@@ -27,8 +27,7 @@ export function FooterCentered({ links }: FooterCenteredProps) {
     <div className='container mx-auto lg:px-10 xl:px-20'>
       <div className='mt-12 border-t dark:border-slate-600 py-4'>
         <div className='flex flex-column md:flex-row justify-between'>
-          <h1 className='font-bold text-3xl'>LOGO</h1>
-          {/* <Image alt='logo' src={logo} width={50} height={100} /> */}
+          <Image alt='logo' src={logo} width={50} height={100} />
 
           <div className='flex flex-col gap-4'>{items}</div>
 

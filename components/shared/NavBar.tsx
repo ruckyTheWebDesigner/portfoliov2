@@ -8,7 +8,7 @@ import { useColorScheme, useMediaQuery } from "@mantine/hooks";
 
 import { AiOutlineMenu } from "react-icons/ai";
 
-// import logo from "@/assets/logo.png";
+import logo from "../../assets/logo.png";
 import Button from "./Button";
 
 import { FiMoon, FiSun } from "react-icons/fi";
@@ -54,8 +54,7 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
       <div className='flex items-center justify-between'>
         <div>
           <Link href={"/"}>
-            <h1 className='font-bold text-3xl'>LOGO</h1>
-            {/* <Image alt='logo' src={logo} width={50} height={100} /> */}
+            <Image alt='logo' src={logo} width={50} height={100} />
           </Link>
         </div>
         <div>
@@ -144,8 +143,7 @@ function MobileNavBar() {
       <div className='py-4 px-4 flex items-center justify-between'>
         <div>
           <Link href={"/"}>
-            <h1 className='font-bold text-3xl'>LOGO</h1>
-            {/* <Image alt='logo' src={logo} width={50} height={100} /> */}
+            <Image alt='logo' src={logo} width={50} height={100} />
           </Link>
         </div>
 
