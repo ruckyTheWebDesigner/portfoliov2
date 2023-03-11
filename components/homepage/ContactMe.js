@@ -13,10 +13,10 @@ function GetInTouchSimple() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const { email, emailAddress, message } = e.target.elements;
+    const { name, emailAddress, message } = e.target.elements;
 
     const templateParams = {
-      from_name: email.value,
+      from_name: name.value,
       from_email: emailAddress.value,
       message: message.value,
     };
@@ -36,12 +36,20 @@ function GetInTouchSimple() {
               "Thanks for reaching out! I'll get back to you as soon as possible."
             );
           }
+
+          name.value = "";
+          emailAddress.value = "";
+          message.value = "";
         },
         (error) => {
           setOpen(true);
           setDialogMessage(
             "Something went wrong. Please try again or send me an email directly at: rukewejoseph77@gmail.com"
           );
+
+          name.value = "";
+          emailAddress.value = "";
+          message.value = "";
         }
       );
   };
@@ -66,7 +74,7 @@ function GetInTouchSimple() {
           </div>
 
           <div className='flex flex-col gap-4'>
-            <Input placeholder='Name' name='email' />
+            <Input placeholder='Name' name='name' />
             <Input
               placeholder='Email Address'
               name='emailAddress'
