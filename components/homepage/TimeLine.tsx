@@ -1,6 +1,5 @@
 "use client";
-import { Timeline, Text } from "@mantine/core";
-import { FiGitBranch } from "react-icons/fi";
+import { Timeline } from "@mantine/core";
 
 import { MdOutlineWork } from "react-icons/md";
 
@@ -30,11 +29,17 @@ export function Demo() {
           key={item.company}
           bullet={<MdOutlineWork size={12} />}
           title={
-            <span className='dark:text-slate-300 pl-4 '>{item.title}</span>
+            <span className='text-gray-800 dark:text-slate-300 pl-4 '>
+              {item.title}
+            </span>
           }>
           <div className='pl-4'>
-            <h6 className='dark:text-slate-400 '>{item.company}</h6>
-            <p className='dark:text-slate-500 text-sm'>{item.date}</p>
+            <h6 className='text-gray-700 dark:text-slate-400 '>
+              {item.company}
+            </h6>
+            <p className=' text-gray-600 dark:text-slate-500 text-sm'>
+              {item.date}
+            </p>
           </div>
         </Timeline.Item>
       ))}
