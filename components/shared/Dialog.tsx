@@ -1,5 +1,4 @@
-import { useDisclosure } from "@mantine/hooks";
-import { Dialog, Group, Text } from "@mantine/core";
+import { Dialog, Text } from "@mantine/core";
 
 import Button from "./Button";
 function Demo({
@@ -13,23 +12,19 @@ function Demo({
 }) {
   return (
     <>
-      <Group position='center'>
-        {/* <Button onClick={toggle}>Toggle dialog</Button> */}
-      </Group>
-
       <Dialog
         opened={open}
         withCloseButton
         onClose={close}
-        size='lg'
+        size='md'
         radius='md'>
         <Text size='sm' mb='xs' weight={500}>
           {message}
         </Text>
 
-        <Group align='flex-end'>
+        <div className='flex justify-end'>
           <Button onClick={close}>Okay</Button>
-        </Group>
+        </div>
       </Dialog>
     </>
   );

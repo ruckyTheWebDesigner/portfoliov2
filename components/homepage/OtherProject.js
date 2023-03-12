@@ -13,16 +13,24 @@ function OtherProject(props) {
       <div className='flex w-full justify-between mt-4 mb-5 items-center'>
         <AiOutlineFolder className='text-3xl text-teal-500' />
         <div className='flex gap-4 text-lg dark:text-slate-300'>
-          <a href={props.github} target='_blank' rel='noreferrer' className=''>
+          <a
+            href={props.github}
+            className='hover:scale-125 dark:text-slate-300 hover:text-slate-100 transition duration-500 ease-in-out'
+            target='_blank'
+            rel='noreferrer'>
             <GoMarkGithub />
           </a>
 
-          <a href={props.url} target='_blank' rel='noreferrer'>
+          <a
+            href={props.url}
+            className='hover:scale-125 dark:text-slate-300 hover:text-slate-100 transition duration-500 ease-in-out'
+            target='_blank'
+            rel='noreferrer'>
             <FiExternalLink />
           </a>
         </div>
       </div>
-      <div className='space-y-2' onClick={() => openurl(props.url)}>
+      <div className='space-y-2'>
         <h3 className='text-lg font-semibold dark:text-slate-300'>
           {props.name}
         </h3>

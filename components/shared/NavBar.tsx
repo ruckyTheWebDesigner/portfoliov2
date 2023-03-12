@@ -1,14 +1,11 @@
 "use client";
 
-import { Container, Tooltip } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { useColorScheme, useMediaQuery } from "@mantine/hooks";
 
 import { AiOutlineMenu } from "react-icons/ai";
-
-// import logo from "@/assets/logo.png";
+import logo from "./logo.png";
 import Button from "./Button";
 
 import { FiMoon, FiSun } from "react-icons/fi";
@@ -18,16 +15,19 @@ import { GiSpeakerOff, GiSpeaker } from "react-icons/gi";
 import { AnimatePresence } from "framer-motion";
 
 import Drawer from "./Drawer";
-import { IoOpen } from "react-icons/io5";
-import { GrClose } from "react-icons/gr";
+
+import { scrollIntoView } from "@/helpers/snippets";
+
+function openPDF(pdfUrl: string) {
+  window.open(pdfUrl, "_blank");
+}
 
 interface NavBarProps {
   colorScheme?: string;
-  toggleColorScheme?: () => void;
+  toggleColorScheme: () => void;
 }
 function NavBar() {
   const [sound, setSound] = React.useState(true);
-  // const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
     <div>
@@ -42,26 +42,30 @@ function NavBar() {
   );
 }
 
-function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
+function DesktopNavBar() {
   const [sound, setSound] = React.useState(true);
+  // const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   // const audio = new Audio(
   //   "https://res.cloudinary.com/dzcmadjl1/video/uplo ad/v1629200009 /so much to say.mp3"
   // );
 
   return (
-    <div className='py-6 container mx-auto lg:px-10 xl:px-20'>
-      <div className='flex items-center justify-between'>
+    <div className='py-8 container mx-auto lg:px-10 xl:px-20'>
+      <div className='flex items-center justify-between space-x-1'>
         <div>
-          <Link href={"/"}>
-            <h1 className='font-bold text-3xl'>LOGO</h1>
-            {/* <Image alt='logo' src={logo} width={50} height={100} /> */}
+          <Link href={"/"} className='hover:border-b transition-all pb-2 group'>
+            <h1 className='font-medium text-2xl font-serif dark:text-slate-100 group-hover:border-b transition-all  group-hover:pb-1 '>
+              Ru<span className='text-teal-600'>k</span>ewe Joseph
+            </h1>
           </Link>
         </div>
         <div>
           <div className='flex space-x-5 md:space-x-8 lg:space-x-12 items-center'>
-            <Link href={"/#about-me"}>
-              <nav className='flex items-center'>
+            <Link href={"/"}>
+              <nav
+                className='flex items-center cursor-pointer'
+                onClick={() => scrollIntoView("about")}>
                 <h5 className='font-semibold mr-2 text-teal-500'>01.</h5>{" "}
                 <h4>About Me</h4>
               </nav>
@@ -72,19 +76,23 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
                 <h4 className=''>Blogs</h4>
               </nav>
             </Link>
-            <Link href={"/#projects"}>
-              <nav className='flex items-center'>
+            <Link href={"/"}>
+              <nav
+                className='flex items-center cursor-pointer'
+                onClick={() => scrollIntoView("projects")}>
                 <h5 className='font-semibold mr-2 text-teal-500'>03.</h5>{" "}
                 <h4>Projects</h4>
               </nav>
             </Link>
 
-            <Button variant='outline'>Resume</Button>
+            <Button onClick={() => openPDF("/resume.pdf")} variant='outline'>
+              Resume
+            </Button>
 
             <div className='flex items-center space-x-6'>
               <AnimatePresence>
                 <div className='text-2xl cursor-pointer'>
-                  <Tooltip
+                  {/* <Tooltip
                     label={
                       colorScheme === "light"
                         ? "Activate dark theme"
@@ -93,15 +101,16 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
                     <span
                       onClick={() => {
                         // sound && audio.play();
-                        // toggleColorScheme();
+                        console.log("clicked");
+                        toggleColorScheme();
                       }}>
                       {colorScheme === "dark" ? <FiMoon /> : <FiSun />}
                     </span>
-                  </Tooltip>
+                  </Tooltip> */}
                 </div>
               </AnimatePresence>
 
-              <div className='text-2xl'>
+              {/* <div className='text-2xl'>
                 <Tooltip label={sound ? "Mute sound" : "Activate sound"}>
                   <a href='#'>
                     {sound ? (
@@ -111,7 +120,7 @@ function DesktopNavBar({ colorScheme, toggleColorScheme }: NavBarProps) {
                     )}
                   </a>
                 </Tooltip>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -141,11 +150,12 @@ const NavLinks = [
 function MobileNavBar() {
   return (
     <>
-      <div className='py-4 px-4 flex items-center justify-between'>
+      <div className='py-5 px-4 flex items-center justify-between'>
         <div>
-          <Link href={"/"}>
-            <h1 className='font-bold text-3xl font-mono'>RY</h1>
-            {/* <Image alt='logo' src={logo} width={50} height={100} /> */}
+          <Link href={"/"} className=' transition-all pb-2 group'>
+            <h1 className='font-medium text-2xl font-serif dark:text-slate-100 group-hover:border-b transition-all  group-hover:pb-1 '>
+              Ru<span className='text-teal-600'>k</span>ewe Joseph
+            </h1>
           </Link>
         </div>
 
@@ -162,7 +172,9 @@ function MobileNavBar() {
               </Link>
             ))}
             <div>
-              <Button variant='outline'>Resume</Button>
+              <Button variant='outline' onClick={() => openPDF("/resume.pdf")}>
+                Resume
+              </Button>
             </div>
           </div>
         </Drawer>

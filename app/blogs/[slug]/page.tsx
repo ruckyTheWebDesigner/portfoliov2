@@ -25,6 +25,15 @@ export async function generateMetadata({
       url: data?.post.author?.url,
     },
     publisher: data?.post.author?.name,
+    keywords: data?.post.tags,
+    robots: {
+      follow: true,
+      index: true,
+      googleBot: {
+        follow: true,
+        index: true,
+      },
+    },
   };
 }
 
@@ -39,10 +48,27 @@ async function Blog({
 
   const { data } = await fetchArticle(slug);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://sleektechnology.hashnode.dev/${slug}`,
+    },
+    headline: data?.post.title,
+    image: data?.post.coverImage,
+    datePublished: data?.post.dateAdded,
+    dateModified: data?.post.dateUpdated,
+  };
+
   return (
-    <div>
+    <>
       <Header data={data} />
-      <div>
+      <section>
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <div>
           <div className='space-y-10'>
             <div className='mx-auto max-w-3xl lg:max-w-4xl px-4'>
@@ -121,8 +147,8 @@ async function Blog({
             </section>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
 

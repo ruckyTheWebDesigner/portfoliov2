@@ -9,7 +9,11 @@ function Project(props) {
   }
   return (
     <Card>
-      <div className='space-y-4'>
+      <a
+        href={props.url}
+        target='_blank'
+        rel='noreferrer'
+        className='space-y-4'>
         <div className='space-y-2'>
           <h5 className='text-teal-500 font-mono '>Featured Project</h5>
 
@@ -31,14 +35,22 @@ function Project(props) {
             );
           })}
         </div>
-      </div>
+      </a>
 
       <div className='flex gap-4 pt-3'>
-        <a href={props.github} target='_blank' rel='noreferrer'>
+        <a
+          href={props.github}
+          className='hover:scale-125 dark:text-slate-300 hover:text-slate-100 transition duration-500 ease-in-out'
+          target='_blank'
+          rel='noreferrer'>
           {" "}
-          <GoMarkGithub className='project-icons icons dark:text-slate-300' />
+          <GoMarkGithub className='project-icons icons ' />
         </a>
-        <a href={props.url} target='_blank' rel='noreferrer'>
+        <a
+          href={props.url}
+          className='hover:scale-125 dark:text-slate-300 hover:text-slate-100 transition duration-500 ease-in-out'
+          target='_blank'
+          rel='noreferrer'>
           {" "}
           <FiExternalLink className='ms-3 project-icons icons dark:text-slate-300 ' />
         </a>

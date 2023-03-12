@@ -35,7 +35,7 @@ function Input({
     <input
       type={type}
       // rows={rows}
-      className='focus:outline-none rounded-md p-2 focus:placeholder:text-teal-500 dark:bg-gray-900 border shadow-sm'
+      className='focus:outline-none rounded-md p-2 focus:placeholder:text-teal-500 dark:bg-gray-900 border dark:border-none shadow-sm'
       name={name}
       placeholder={placeholder}
       id={id}
@@ -53,7 +53,7 @@ export function TextArea({
   return (
     <textarea
       rows={rows}
-      className='focus:outline-none rounded-md p-2 focus:placeholder:text-teal-500 dark:bg-gray-900 border  shadow-sm'
+      className='focus:outline-none rounded-md p-2 focus:placeholder:text-teal-500 dark:bg-gray-900 border dark:border-none shadow-sm'
       name={name}
       placeholder={placeholder}
       id={id}

@@ -15,6 +15,16 @@ function GetInTouchSimple() {
 
     const { name, emailAddress, message } = e.target.elements;
 
+    if (
+      name.value === "" ||
+      emailAddress.value === "" ||
+      message.value === ""
+    ) {
+      setOpen(true);
+      setDialogMessage("Please fill out all fields.");
+      return;
+    }
+
     const templateParams = {
       from_name: name.value,
       from_email: emailAddress.value,

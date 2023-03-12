@@ -57,14 +57,6 @@ function OtherProjects() {
             <motion.div
               key={project.id}
               className=' mb-2'
-              ref={addtoRefs}
-              whileHover={{
-                y: -10,
-                transition: { duration: 1 },
-                boxShadow: "10px rgba(0, 0, 0, 0.2)",
-              }}
-              layout
-              whileTap={{ scale: 1.1 }}
               onClick={() => openurl(project.url)}>
               <OtherProject
                 key={project.name}

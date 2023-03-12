@@ -37,7 +37,7 @@ function Header({ data }: any) {
       </div>
 
       <div className='flex items-center space-x-3 md:space-x-6'>
-        <AnimatePresence>
+        {/* <AnimatePresence>
           <div className='text-2xl cursor-pointer'>
             <Tooltip
               label={
@@ -54,9 +54,9 @@ function Header({ data }: any) {
               </Link>
             </Tooltip>
           </div>
-        </AnimatePresence>
+        </AnimatePresence> */}
 
-        <AnimatePresence>
+        {/* <AnimatePresence>
           <div className='text-2xl cursor-pointer'>
             <Tooltip label={sound ? "Mute sound" : "Activate sound"}>
               <a href='#'>
@@ -68,7 +68,7 @@ function Header({ data }: any) {
               </a>
             </Tooltip>
           </div>
-        </AnimatePresence>
+        </AnimatePresence> */}
       </div>
     </div>
   );

@@ -2,14 +2,16 @@ import React from "react";
 // import { Divider } from "@mui/material";
 import { MdPlayArrow } from "react-icons/md";
 import photo from "../../assets/photo.png";
-// import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { Divider } from "@mantine/core";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// gsap.registerPlugin(ScrollTrigger);
+import { motion, useAnimation } from "framer-motion";
+import Link from "next/link";
 
+import Button from "../shared/Button";
+
+import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
 interface TechProps {
   name: string;
 }
@@ -45,31 +47,43 @@ const technologies: TechProps[] = [
   },
 ];
 
+const socials = [
+  {
+    name: "Github",
+    link: "https://github.com/ruckyTheWebDesigner",
+    icon: <FiGithub />,
+  },
+  {
+    name: "Linkedin",
+    link: "https://www.linkedin.com/in/rukewe-joseph-085499219 ",
+    icon: <FiLinkedin />,
+  },
+  {
+    name: "Twitter",
+    link: "https://twitter.com/rukewej_dev",
+    icon: <FiTwitter />,
+  },
+];
+
 function AboutMe() {
-  const revealRefs = useRef(null);
-
-  // useEffect(() => {
-  //   gsap.fromTo(
-  //     revealRefs.current,
-  //     { autoAlpha: 0 },
-  //     {
-  //       duration: 1,
-  //       autoAlpha: 1,
-  //       scrollTrigger: {
-  //         trigger: revealRefs.current,
-  //         start: "top center+=100",
-  //         end: "bottom bottom",
-  //         toggleActions: "play none none reverse",
-  //       },
-  //     }
-  //   );
-  // }, [revealRefs]);
-
+  const openLink = (link: string) => {
+    window.open(link, "_blank");
+  };
   return (
-    <div id='about-me' className='space-y-6 md:space-y-8 lg:space-y-10'>
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      id='about'
+      className='space-y-6 md:space-y-8 lg:space-y-10'>
       <Divider
         my='xs'
-        // color={"primary"}
         label={
           <div
             className='abouttitle text-lg md:text-xl flex items-center space-x-2'
@@ -81,9 +95,7 @@ function AboutMe() {
       />
 
       <div className='grid grid-cols-1 md:grid-cols-8 gap-6 md:gap-10 lg:gap-14'>
-        <div
-          className='about-content d-flex flex-column flex-md-row flex-lg-row col md:col-span-5 dark:text-slate-500'
-          ref={revealRefs}>
+        <div className='about-content d-flex flex-column flex-md-row flex-lg-row col md:col-span-5 dark:text-slate-500'>
           <div className='about-body space-y-3 md:space-y-5'>
             <p>
               Hello! My name is Rukewe and i enjoy creating things that live on
@@ -93,10 +105,9 @@ function AboutMe() {
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of working as a
-              freelancer on my leisure time and contributed to several
-              open-source projects. My main focus these days is solving day to
-              day problems with modern technology.
+              Fast-forward to today, and I’ve had the privilege of contributing
+              to several open-source projects. My main focus these days is
+              solving day to day problems with modern technologies.
             </p>
 
             <p>
@@ -113,6 +124,21 @@ function AboutMe() {
                 );
               })}
             </div>
+
+            <div className='flex flex-wrap gap-4 pt-5'>
+              {socials.map((social) => {
+                return (
+                  <div key={social.name}>
+                    <Button
+                      onClick={() => openLink(social.link)}
+                      leftIcon={social.icon}
+                      variant='outline'>
+                      {social.name}
+                    </Button>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -120,12 +146,15 @@ function AboutMe() {
           {/* <div className='border border-teal-500 bg-transparent h-24 absolute left-4'></div> */}
           <Image
             src={photo}
+            width={300}
+            height={300}
+            loading='eager'
             alt='rukewe joseph'
-            className='rounded-md aspect-square opacity-90'
+            className='rounded-md aspect-square opacity-90 hover:opacity-100 transition-all duration-300 ease-in-out cursor-pointer'
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

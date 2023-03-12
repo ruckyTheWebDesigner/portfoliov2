@@ -55,17 +55,7 @@ function Projects() {
       <div className='grid grid-cols-1 gap-4 md:gap-6 sm:grid-cols-2'>
         {Projectsinfo.map((project) => {
           return (
-            <motion.div
-              key={project.id}
-              className=' mb-2'
-              ref={addtoRefs}
-              layout
-              whileTap={{ scale: 1.1 }}
-              whileHover={{
-                y: -10,
-                boxShadow: "10px rgba(0, 0, 0, 0.2)",
-                transition: { duration: 1 },
-              }}>
+            <motion.div key={project.id} className=' mb-2'>
               <Project
                 value={project}
                 className='project-1'
