@@ -2,60 +2,44 @@
 import { Timeline, Text } from "@mantine/core";
 import { FiGitBranch } from "react-icons/fi";
 
-function Demo() {
+import { MdOutlineWork } from "react-icons/md";
+
+const workHistory = [
+  {
+    title: "Frontend Developer",
+    company: "Disc Akademi",
+    date: "Nov 2022 - Present",
+  },
+  {
+    title: "Full Stack Developer",
+    company: "Freelance",
+    date: "Mar 2022 - Nov 2022",
+  },
+  {
+    title: "Frontend Developer",
+    company: "Tradezia Global",
+    date: "Dec 2019 - Mar 2022",
+  },
+];
+
+export function Demo() {
   return (
-    <Timeline active={1} bulletSize={24} lineWidth={2}>
-      <Timeline.Item bullet={<FiGitBranch size={12} />} title='New branch'>
-        <Text color='dimmed' size='sm'>
-          You&apos;ve created new branch{" "}
-          <Text variant='link' component='span' inherit>
-            fix-notifications
-          </Text>{" "}
-          from master
-        </Text>
-        <Text size='xs' mt={4}>
-          2 hours ago
-        </Text>
-      </Timeline.Item>
-
-      <Timeline.Item bullet={<FiGitBranch size={12} />} title='Commits'>
-        <Text color='dimmed' size='sm'>
-          You&apos;ve pushed 23 commits to
-          <Text variant='link' component='span' inherit>
-            fix-notifications branch
-          </Text>
-        </Text>
-        <Text size='xs' mt={4}>
-          52 minutes ago
-        </Text>
-      </Timeline.Item>
-
-      <Timeline.Item
-        title='Pull request'
-        bullet={<FiGitBranch size={12} />}
-        lineVariant='dashed'>
-        <Text color='dimmed' size='sm'>
-          You&apos;ve submitted a pull request
-          <Text variant='link' component='span' inherit>
-            Fix incorrect notification message (#187)
-          </Text>
-        </Text>
-        <Text size='xs' mt={4}>
-          34 minutes ago
-        </Text>
-      </Timeline.Item>
-
-      <Timeline.Item title='Code review' bullet={<FiGitBranch size={12} />}>
-        <Text color='dimmed' size='sm'>
-          <Text variant='link' component='span' inherit>
-            Robert Gluesticker
-          </Text>{" "}
-          left a code review on your pull request
-        </Text>
-        <Text size='xs' mt={4}>
-          12 minutes ago
-        </Text>
-      </Timeline.Item>
+    <Timeline active={0} bulletSize={24} lineWidth={2}>
+      {workHistory.map((item) => (
+        <Timeline.Item
+          key={item.company}
+          bullet={<MdOutlineWork size={12} />}
+          title={
+            <span className='dark:text-slate-300 pl-4 '>{item.title}</span>
+          }>
+          <div className='pl-4'>
+            <h6 className='dark:text-slate-400 '>{item.company}</h6>
+            <p className='dark:text-slate-500 text-sm'>{item.date}</p>
+          </div>
+        </Timeline.Item>
+      ))}
     </Timeline>
   );
 }
+
+export default Demo;
