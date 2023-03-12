@@ -1,4 +1,6 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
+
 import ThemeProvider from "@/context/ThemeProvider";
 export const metadata = {
   title: "Rukewe Joseph | Javascript Developer",
@@ -29,7 +31,10 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <ThemeProvider>
-        <body>{children}</body>
+        <body>
+          {children}
+          <Analytics />
+        </body>
       </ThemeProvider>
     </html>
   );
