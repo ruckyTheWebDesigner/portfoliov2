@@ -1,5 +1,4 @@
 "use client";
-
 import Hero from "./Hero";
 import AboutMe from "./AboutMe.tsx";
 import Projects from "./Projects";

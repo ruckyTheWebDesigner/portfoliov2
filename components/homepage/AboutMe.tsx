@@ -94,7 +94,7 @@ function AboutMe() {
         }
       />
 
-      <div className='grid grid-cols-1 md:grid-cols-8 gap-6 md:gap-10 lg:gap-14'>
+      <div className='grid grid-cols-1 md:grid-cols-8 gap-12 lg:gap-14'>
         <div className='about-content d-flex flex-column flex-md-row flex-lg-row col md:col-span-5 dark:text-slate-500'>
           <div className='about-body space-y-3 md:space-y-5'>
             <p>

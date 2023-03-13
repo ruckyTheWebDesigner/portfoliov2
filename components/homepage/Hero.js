@@ -85,13 +85,9 @@ function Hero() {
       </motion.div>
 
       <div
-        className='absolute top-10 right-[-40px] xl:right-[-120px] hidden lg:block z-50 
+        className='absolute top-10 right-[-40px] lg:right-[-90px] xl:right-[-120px] hidden lg:block z-50 
       '>
         <Image
-          style={{
-            width: "auto",
-            height: "auto",
-          }}
           priority
           src={avatarsvg}
           alt='Illustration of Kody the Koala standing on a onewheel surrounded by green leaves, a battery, two skies, a snowboard, a solar panel, and a recycle logo.'
