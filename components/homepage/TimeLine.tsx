@@ -3,25 +3,7 @@ import { Timeline } from "@mantine/core";
 
 import { MdOutlineWork } from "react-icons/md";
 
-const workHistory = [
-  {
-    title: "Frontend Developer",
-    company: "Disc Akademi",
-    date: "Nov 2022 - Present",
-  },
-  {
-    title: "Full Stack Developer",
-    company: "Freelance",
-    date: "Mar 2022 - Nov 2022",
-  },
-  {
-    title: "Frontend Developer",
-    company: "Tradezia Global",
-    date: "Dec 2019 - Mar 2022",
-  },
-];
-
-export function Demo() {
+export function Demo({ workHistory }: { workHistory: any[] }) {
   return (
     <Timeline active={0} bulletSize={24} lineWidth={2}>
       {workHistory.map((item) => (

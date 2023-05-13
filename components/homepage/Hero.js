@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import Button from "../shared/Button";
 
@@ -78,7 +79,7 @@ function Hero() {
           <span className='text-teal-500'>user-friendly experiences.</span>
         </motion.h6>
         <motion.div className='pt-8' variants={item}>
-          <Button onClick={() => scrollToSection("about")} variant='outline'>
+          <Button onClick={() => scrollToSection("about-me")} variant='outline'>
             More About Me
           </Button>
         </motion.div>

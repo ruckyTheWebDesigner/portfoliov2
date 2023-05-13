@@ -1,15 +1,31 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "./page.module.css";
+import NavBar from "@/components/shared/NavBar";
+import Hero from "@/components/homepage/Hero";
+import AboutMe from "@/components/homepage/AboutMe";
+import WorkHistory from "@/components/homepage/WorkHistory";
+import Projects from "@/components/homepage/Projects";
+import OtherProjects from "@/components/homepage/OtherProjects";
+import Sidebar from "@/components/homepage/Sidebar";
+import ContactMe from "@/components/homepage/ContactMe";
 
-import HomePage from "../components/homepage/HomePage";
+import { get } from "@vercel/edge-config";
 
-const inter = Inter({ subsets: ["latin"] });
+export default async function Home() {
+  const projects = await get("projects");
+  const otherProjects = await get("otherProjects");
+  const workHistory = await get("workHistory");
 
-export default function Home() {
   return (
     <main>
-      <HomePage />
+      <NavBar />
+      <div className='space-y-16 sm:space-y-24 md:space-y-32 md:max-w-3xl lg:max-w-4xl container mx-auto px-4'>
+        <Hero />
+        <AboutMe />
+        <WorkHistory workHistory={workHistory} />
+        <Projects projects={projects} />
+        <OtherProjects projects={otherProjects} />
+        <ContactMe />
+        <Sidebar />
+      </div>
     </main>
   );
 }

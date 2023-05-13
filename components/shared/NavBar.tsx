@@ -1,22 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 import { AiOutlineMenu } from "react-icons/ai";
-import logo from "./logo.png";
 import Button from "./Button";
-
-import { FiMoon, FiSun } from "react-icons/fi";
-import { AiFillSound } from "react-icons/ai";
-
-import { GiSpeakerOff, GiSpeaker } from "react-icons/gi";
-import { AnimatePresence } from "framer-motion";
 
 import Drawer from "./Drawer";
 
 import { scrollIntoView } from "@/helpers/snippets";
+import ActiveLink from "./ActiveLink";
 
 function openPDF(pdfUrl: string) {
   window.open(pdfUrl, "_blank");
@@ -27,8 +20,6 @@ interface NavBarProps {
   toggleColorScheme: () => void;
 }
 function NavBar() {
-  const [sound, setSound] = React.useState(true);
-
   return (
     <div>
       <div className='md:hidden block'>
@@ -43,43 +34,37 @@ function NavBar() {
 }
 
 function DesktopNavBar() {
-  const [sound, setSound] = React.useState(true);
-  // const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-
-  // const audio = new Audio(
-  //   "https://res.cloudinary.com/dzcmadjl1/video/uplo ad/v1629200009 /so much to say.mp3"
-  // );
-
   return (
     <div className='py-8 container mx-auto lg:px-10 xl:px-20'>
       <div className='flex items-center justify-between space-x-1'>
         <div>
-          <Link href={"/"} className='hover:border-b transition-all pb-2 group'>
-            <h1 className='font-medium text-2xl font-serif dark:text-slate-100 group-hover:border-b transition-all  group-hover:pb-1 '>
+          <ActiveLink href={"/"} className=' pb-2'>
+            <h1 className='font-medium text-2xl font-serif dark:text-slate-100 '>
               Ru<span className='text-teal-600'>k</span>ewe Joseph
             </h1>
-          </Link>
+          </ActiveLink>
         </div>
         <div>
           <div className='flex space-x-5 md:space-x-8 lg:space-x-12 items-center'>
-            <Link href={"/"}>
+            <ActiveLink href={"/#about-me"} activeClassName={"border-b"}>
               <nav
                 className='flex items-center cursor-pointer'
-                onClick={() => scrollIntoView("about")}>
+                onClick={() => scrollIntoView("about-me")}>
                 <h5 className='font-semibold mr-2 text-teal-500'>01.</h5>{" "}
                 <h4>About Me</h4>
               </nav>
-            </Link>
-            <Link href={"/blogs"}>
+            </ActiveLink>
+
+            <ActiveLink href={"/blog"} activeClassName={"border-b"}>
               <nav className='flex items-center'>
                 <h5 className='font-semibold mr-2 text-teal-500'>02.</h5>{" "}
-                <h4 className=''>Blogs</h4>
+                <h4 className=''>Blog</h4>
               </nav>
-            </Link>
-            <Link href={"/"}>
+            </ActiveLink>
+            <Link href={"/#projects"}>
               <nav
-                className='flex items-center cursor-pointer'
-                onClick={() => scrollIntoView("projects")}>
+                onClick={() => scrollIntoView("projects")}
+                className='flex items-center cursor-pointer'>
                 <h5 className='font-semibold mr-2 text-teal-500'>03.</h5>{" "}
                 <h4>Projects</h4>
               </nav>
@@ -88,40 +73,6 @@ function DesktopNavBar() {
             <Button onClick={() => openPDF("/resume.pdf")} variant='outline'>
               Resume
             </Button>
-
-            <div className='flex items-center space-x-6'>
-              <AnimatePresence>
-                <div className='text-2xl cursor-pointer'>
-                  {/* <Tooltip
-                    label={
-                      colorScheme === "light"
-                        ? "Activate dark theme"
-                        : "Activate light theme"
-                    }>
-                    <span
-                      onClick={() => {
-                        // sound && audio.play();
-                        console.log("clicked");
-                        toggleColorScheme();
-                      }}>
-                      {colorScheme === "dark" ? <FiMoon /> : <FiSun />}
-                    </span>
-                  </Tooltip> */}
-                </div>
-              </AnimatePresence>
-
-              {/* <div className='text-2xl'>
-                <Tooltip label={sound ? "Mute sound" : "Activate sound"}>
-                  <a href='#'>
-                    {sound ? (
-                      <GiSpeaker onClick={() => setSound(false)} />
-                    ) : (
-                      <GiSpeakerOff onClick={() => setSound(true)} />
-                    )}
-                  </a>
-                </Tooltip>
-              </div> */}
-            </div>
           </div>
         </div>
       </div>
@@ -136,7 +87,7 @@ const NavLinks = [
     number: "01.",
   },
   {
-    link: "/blogs",
+    link: "/blog",
     title: "Blogs",
     number: "02.",
   },

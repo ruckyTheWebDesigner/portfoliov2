@@ -3,7 +3,7 @@ import Skeleton from "@/components/shared/Skeleton";
 import { Suspense } from "react";
 import { FooterCentered } from "@/components/shared/Footer";
 
-import BlogsContent from "@/components/blogs/Blogs";
+import BlogsContent from "@/components/blog/Blogs";
 
 import { fetchArticles } from "@/utils/articles";
 
@@ -21,7 +21,7 @@ export default async function Blogs() {
   return (
     <div>
       <NavBar />
-      <div className='py-6 lg:py-10 container mx-auto px-4 lg:px-14 xl:px-36 mt-3'>
+      <div className='py-6 lg:py-10 container mx-auto px-4 lg:px-14 xl:px-36 2xl:px-60 mt-3'>
         <div className='mb-6 flex justify-between items-center'>
           <h6 className='text-lg font-medium text-teal-500'> Latest Blogs</h6>
 

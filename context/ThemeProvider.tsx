@@ -1,27 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import {
-  MantineProvider,
-  ColorSchemeProvider,
-  ColorScheme,
-  createEmotionCache,
-} from "@mantine/core";
-import { useColorScheme } from "@mantine/hooks";
+import { MantineProvider } from "@mantine/core";
 
-// const emotionCache = createEmotionCache();
-
-export default function ThemeProvider({ children }: any) {
-  const preferredColorScheme = useColorScheme();
-  const [colorScheme, setColorScheme] =
-    useState<ColorScheme>(preferredColorScheme);
-  const toggleColorScheme = (value?: ColorScheme) => {
-    console.log("value", value);
-    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
-
-    console.log("colorScheme", colorScheme);
-  };
-
+export default function ThemeProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <MantineProvider
       theme={{

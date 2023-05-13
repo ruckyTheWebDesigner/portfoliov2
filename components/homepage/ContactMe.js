@@ -1,7 +1,7 @@
+"use client";
 import Button from "../shared/Button";
 import { useState } from "react";
-import Input from "../shared/Input";
-import { TextArea } from "../shared/Input";
+import Input, { TextArea } from "../shared/Input";
 import Dialog from "../shared/Dialog";
 
 import emailjs from "@emailjs/browser";

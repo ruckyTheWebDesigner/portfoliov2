@@ -1,8 +1,9 @@
+"use client";
 import { Divider } from "@mantine/core";
 import React from "react";
 import TimeLine from "./TimeLine";
 
-function WorkHistory() {
+function WorkHistory({ workHistory }: { workHistory: any }) {
   return (
     <div className='space-y-6 md:space-y-8 lg:space-y-10'>
       <Divider
@@ -19,7 +20,7 @@ function WorkHistory() {
       />
 
       <div className='flex flex-col items-center'>
-        <TimeLine />
+        <TimeLine workHistory={workHistory} />
       </div>
     </div>
   );

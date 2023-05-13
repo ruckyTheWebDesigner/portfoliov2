@@ -24,7 +24,7 @@ function Blogs({ posts }: { posts: any }) {
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
             {posts.slice(0, endNum).map((blog: any) => {
               return (
-                <Link href={`/blogs/${blog.slug}`} key={blog._id}>
+                <Link href={`/blog/${blog.slug}`} key={blog._id}>
                   <BlogCard
                     key={blog.title}
                     title={blog.title}

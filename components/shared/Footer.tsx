@@ -1,17 +1,7 @@
 "use client";
 
-import { Anchor } from "@mantine/core";
-import Image from "next/image";
 import Link from "next/link";
-import {
-  FiGithub,
-  FiInstagram,
-  FiLinkedin,
-  FiTwitter,
-  FiYoutube,
-} from "react-icons/fi";
-
-// import logo from "@/assets/logo.png";
+import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
 
 interface FooterCenteredProps {
   links: { link: string; label: string }[];
@@ -41,15 +31,9 @@ const openLink = (link: string) => {
 
 export function FooterCentered({ links }: FooterCenteredProps) {
   const items = links.map((link) => (
-    <Anchor<"a">
-      color='dimmed'
-      key={link.label}
-      href={link.link}
-      sx={{ lineHeight: 1 }}
-      onClick={(event) => event.preventDefault()}
-      size='sm'>
+    <Link key={link.link} href={link.link}>
       {link.label}
-    </Anchor>
+    </Link>
   ));
 
   return (
@@ -61,7 +45,6 @@ export function FooterCentered({ links }: FooterCenteredProps) {
               Ru<span className='text-teal-600'>k</span>ewe Joseph
             </h1>
           </Link>
-          {/* <Image alt='logo' src={logo} width={50} height={100} /> */}
 
           <div className='flex flex-col gap-4'>{items}</div>
           <div className='flex flex-wrap items-center gap-4'>

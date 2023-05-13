@@ -1,23 +1,29 @@
 "use client";
 
-import { Container, Tooltip } from "@mantine/core";
-import { AnimatePresence } from "framer-motion";
+import { Tooltip } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FiMoon, FiSun } from "react-icons/fi";
-import { GiSpeaker, GiSpeakerOff } from "react-icons/gi";
 import { IoArrowBackOutline } from "react-icons/io5";
 
-function Header({ data }: any) {
-  const [theme, setTheme] = React.useState("light");
-  const [sound, setSound] = React.useState(true);
+function Header({
+  data,
+}: {
+  data: {
+    post: {
+      author: {
+        photo: string;
+        name: string;
+      };
+    };
+  };
+}) {
   return (
     <div className=' flex items-center justify-between py-5 container mx-auto lg:px-10 xl:px-20 px-4 mb-3'>
       <div className=' flex items-center space-x-4 lg:space-x-8'>
         <div>
           <Tooltip label={`Blog's Home`}>
-            <Link href={"/blogs"}>
+            <Link href={"/blog"}>
               <IoArrowBackOutline className='text-2xl' />
             </Link>
           </Tooltip>

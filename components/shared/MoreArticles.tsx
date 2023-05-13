@@ -17,7 +17,7 @@ function MoreArticles({ posts }: { posts: any }) {
       <div className='grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 items-center'>
         {posts?.slice(0, 5).map((article: any) => {
           return (
-            <Link href={`/blogs/${article.slug}`} key={article._id}>
+            <Link href={`/blog/${article.slug}`} key={article._id}>
               <BlogCard title={article.title} description={article.brief} />
             </Link>
           );
@@ -25,7 +25,7 @@ function MoreArticles({ posts }: { posts: any }) {
       </div>
 
       <div className='flex justify-center'>
-        <Link href={"/blogs"}>
+        <Link href={"/blog"}>
           <Button variant='outline'>View All</Button>
         </Link>
       </div>

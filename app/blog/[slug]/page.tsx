@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 import Card from "@/components/shared/Card";
-import Header from "@/components/blogs/Header";
+import Header from "@/components/blog/Header";
 import Image from "next/image";
 import React from "react";
 import Author from "@/components/blog/Author";
@@ -34,6 +34,23 @@ export async function generateMetadata({
         index: true,
       },
     },
+    openGraph: {
+      type: "article",
+      url: `https://www.rukewejoseph.com/blog/${params.slug}`,
+      title: data?.post.title,
+      description: data?.post.brief,
+      siteName: "Rukewe Joseph Portfolio | Blog",
+      images: [
+        {
+          url: data?.post.coverImage,
+          width: 800,
+          height: 600,
+          alt: data?.post.title,
+        },
+      ],
+      authors: ["Rukewe Joseph"],
+      publishedTime: data?.post.dateAdded,
+    },
   };
 }
 
@@ -53,7 +70,7 @@ async function Blog({
     "@type": "BlogPosting",
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://sleektechnology.hashnode.dev/${slug}`,
+      "@id": `https://www.rukewejoseph.com/blog/${slug}`,
     },
     headline: data?.post.title,
     image: data?.post.coverImage,

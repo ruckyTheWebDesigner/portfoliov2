@@ -1,13 +1,11 @@
+"use client";
 import React from "react";
-// import { Divider } from "@mui/material";
 import { MdPlayArrow } from "react-icons/md";
 import photo from "../../assets/photo.png";
-import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { Divider } from "@mantine/core";
 
-import { motion, useAnimation } from "framer-motion";
-import Link from "next/link";
+import { motion } from "framer-motion";
 
 import Button from "../shared/Button";
 
@@ -69,19 +67,9 @@ function AboutMe() {
   const openLink = (link: string) => {
     window.open(link, "_blank");
   };
+
   return (
-    <motion.div
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      animate={{
-        opacity: 1,
-      }}
-      id='about'
-      className='space-y-6 md:space-y-8 lg:space-y-10'>
+    <motion.div id='about-me' className='space-y-6 md:space-y-8 lg:space-y-10'>
       <Divider
         my='xs'
         label={
@@ -143,7 +131,6 @@ function AboutMe() {
         </div>
 
         <div className='relative md:col-span-3'>
-          {/* <div className='border border-teal-500 bg-transparent h-24 absolute left-4'></div> */}
           <Image
             src={photo}
             width={300}

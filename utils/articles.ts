@@ -20,14 +20,18 @@ const ARTICLE_QUERY = `
 
 `;
 
-const apiKey = "7df95377-352a-4181-8e01-08e6833f82c6";
+const apiKey = process.env.HASHNODE_API_KEY;
 
 export const fetchArticles = async () => {
   const response = await fetch(endpoint, {
+    // revalide every 10 minutes
+    next: {
+      revalidate: 600,
+    },
+
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      // Authorization: `Bearer ${process.env.HASHNODE_API_KEY}`,
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
@@ -94,6 +98,10 @@ export const fetchArticle = async (slug: string) => {
 `;
 
   const response = await fetch(endpoint, {
+    // revalide every 10 minutes
+    next: {
+      revalidate: 600,
+    },
     method: "POST",
     headers: {
       "Content-Type": "application/json",

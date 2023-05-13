@@ -1,26 +1,35 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-
 import ThemeProvider from "@/context/ThemeProvider";
+
 export const metadata = {
-  title: "Rukewe Joseph | Javascript Developer",
+  title: "Rukewe Joseph | Javascript Developer | Portfolio Website",
   description:
-    "Rukewe Joseph's portfolio website showcases his skills, experience, and projects to potential employers and clients. Built using Next.js and TypeScript, the website features a responsive design, dark mode toggle, and animations for an engaging user experience.",
+    "Rukewe Joseph is a software engineer and full-stack Javascript developer. Check out his portfolio website to see his skills, experience, and projects, and read his blog for insights into web development and Javascript.",
   robots: "index, follow",
   keywords:
-    "Rukewe Joseph, Software Engineer, Javascript Developer, Full Stack Developer, Rukewe Joseph Portfolio Website, Blog, Rukewe Joseph Blog",
+    "Rukewe Joseph, Software Engineer, Javascript Developer, Full Stack Developer, Portfolio Website, Blog, Web Development, Javascript",
   generator: "Next.js",
   manifest: "/manifest.json",
-  icons: {
-    icon: {
-      sizes: "32x32",
-      url: "/favicon.ico",
-      rel: "icon",
-      type: "image/png",
-    },
-    apple: "/apple-touch-icon.png",
-  },
   category: "Portfolio",
+  creator: "Rukewe Joseph",
+  publisher: "Rukewe Joseph",
+  openGraph: {
+    type: "website",
+    url: "https://www.rukewejoseph.com",
+    title: "Rukewe Joseph | Javascript Developer | Portfolio Website",
+    description:
+      "Rukewe Joseph is a software engineer and full-stack Javascript developer. Check out his portfolio website to see his skills, experience, and projects, and read his blog for insights into web development and Javascript.",
+    siteName: "Rukewe Joseph Portfolio",
+    images: [
+      {
+        url: "/favicon.ico",
+        width: 200,
+        height: 200,
+        alt: "Rukewe Joseph Portfolio Website",
+      },
+    ],
+  },
 };
 
 export default async function RootLayout({
@@ -33,7 +42,7 @@ export default async function RootLayout({
       <ThemeProvider>
         <body>
           {children}
-          <Analytics />
+          {/* <Analytics /> */}
         </body>
       </ThemeProvider>
     </html>
