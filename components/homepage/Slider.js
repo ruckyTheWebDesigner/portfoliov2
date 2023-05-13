@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from "react";
+import { useState  } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -7,11 +7,6 @@ import "swiper/css";
 import SwiperCore, { Pagination, Navigation } from "swiper/core";
 import Testimonials from "./TestimonialsApi";
 import Image from "next/image";
-
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// gsap.registerPlugin(ScrollTrigger);
 
 // Import Swiper styles
 
