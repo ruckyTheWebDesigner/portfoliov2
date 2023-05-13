@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import ThemeProvider from "@/context/ThemeProvider";
 
 export const metadata = {
+  metadataBase: new URL("https://rukewejoseph.com"),
   title: "Rukewe Joseph | Javascript Developer | Portfolio Website",
   description:
     "Rukewe Joseph is a software engineer and full-stack Javascript developer. Check out his portfolio website to see his skills, experience, and projects, and read his blog for insights into web development and Javascript.",

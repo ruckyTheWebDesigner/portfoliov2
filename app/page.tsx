@@ -29,3 +29,7 @@ export default async function Home() {
     </main>
   );
 }
+
+export const runtime = "edge";
+
+// export const dynamic = "force-dynamic";

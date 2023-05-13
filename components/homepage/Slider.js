@@ -6,6 +6,7 @@ import "swiper/css";
 
 import SwiperCore, { Pagination, Navigation } from "swiper/core";
 import Testimonials from "./TestimonialsApi";
+import Image from "next/image";
 
 // import { gsap } from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -42,8 +43,10 @@ function Slider() {
               <div className='swiper-slide'>
                 <blockquote className='p-8'>
                   <div className='flex items-center'>
-                    <img
+                    <Image
                       src={review.image}
+                      width={64}
+                      height={64}
                       alt=''
                       className='object-cover w-16 h-16 rounded-full'
                     />

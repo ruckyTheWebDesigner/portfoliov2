@@ -18,6 +18,7 @@ export async function generateMetadata({
   const { data } = await fetchArticle(params.slug);
 
   return {
+    metadataBase: new URL("https://rukewejoseph.com"),
     title: data?.post?.title,
     description: data?.post?.brief,
     authors: {
