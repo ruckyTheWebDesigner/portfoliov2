@@ -8,15 +8,7 @@ import BlogsContent from "@/components/blog/Blogs";
 import { fetchArticles } from "@/utils/articles";
 
 export default async function Blogs() {
-  const data = await fetchArticles();
-
-  const {
-    data: {
-      user: {
-        publication: { posts },
-      },
-    },
-  } = data;
+  const posts = await fetchArticles();
 
   return (
     <div>

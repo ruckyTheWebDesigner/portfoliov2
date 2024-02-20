@@ -1,12 +1,16 @@
-import styles from "./styles.module.css";
 import Card from "@/components/shared/Card";
 import Header from "@/components/blog/Header";
 import Image from "next/image";
-import React from "react";
 import Author from "@/components/blog/Author";
 import type { Metadata } from "next";
 
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+
 import { fetchArticle } from "@/utils/articles";
+import { MemoizedReactMarkdown } from "@/components/shared/MemoizedReactMarkdown";
+import MarkdownComponents from "@/components/shared/MarkDownComponents";
+import { Components } from "react-markdown";
 
 export async function generateMetadata({
   params,
@@ -15,18 +19,20 @@ export async function generateMetadata({
     slug: string;
   };
 }): Promise<Metadata> {
-  const { data } = await fetchArticle(params.slug);
+  const { slug } = params;
+
+  const post = await fetchArticle(slug);
 
   return {
     metadataBase: new URL("https://rukewejoseph.com"),
-    title: data?.post?.title,
-    description: data?.post?.brief,
+    title: post?.title,
+    description: post?.brief,
     authors: {
-      name: data?.post.author?.name,
-      url: data?.post.author?.url,
+      name: post.author?.name,
+      url: post.author.profilePicture,
     },
-    publisher: data?.post.author?.name,
-    keywords: data?.post.tags,
+    publisher: post.author?.name,
+    keywords: post.tags ? post.tags.map((tag) => tag.name) : [],
     robots: {
       follow: true,
       index: true,
@@ -38,19 +44,12 @@ export async function generateMetadata({
     openGraph: {
       type: "article",
       url: `https://www.rukewejoseph.com/blog/${params.slug}`,
-      title: data?.post.title,
-      description: data?.post.brief,
-      siteName: "Rukewe Joseph Portfolio | Blog",
-      images: [
-        {
-          url: data?.post.coverImage,
-          width: 800,
-          height: 600,
-          alt: data?.post.title,
-        },
-      ],
-      authors: ["Rukewe Joseph"],
-      publishedTime: data?.post.dateAdded,
+      title: post.title,
+      description: post.brief,
+      siteName: `${post.author.name} Portfolio | Blog`,
+      images: post.coverImage ? [post.coverImage.url] : [],
+      authors: [post.author.name],
+      publishedTime: post.publishedAt,
     },
   };
 }
@@ -58,13 +57,13 @@ export async function generateMetadata({
 async function Blog({
   params,
 }: {
-  params: {
-    slug: string;
+  readonly params: {
+    readonly slug: string;
   };
 }) {
   const { slug } = params;
 
-  const { data } = await fetchArticle(slug);
+  const post = await fetchArticle(slug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -73,15 +72,15 @@ async function Blog({
       "@type": "WebPage",
       "@id": `https://www.rukewejoseph.com/blog/${slug}`,
     },
-    headline: data?.post.title,
-    image: data?.post.coverImage,
-    datePublished: data?.post.dateAdded,
-    dateModified: data?.post.dateUpdated,
+    headline: post.title,
+    image: post.coverImage,
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt,
   };
 
   return (
     <>
-      <Header data={data} />
+      <Header post={post} />
       <section>
         <script
           type='application/ld+json'
@@ -90,14 +89,14 @@ async function Blog({
         <div>
           <div className='space-y-10'>
             <div className='mx-auto max-w-3xl lg:max-w-4xl px-4'>
-              {data?.post.coverImage ? (
+              {post.coverImage ? (
                 <Image
                   width={1000}
                   height={300}
                   loading='eager'
                   className='object-fit rounded-md aspect-video'
-                  alt=''
-                  src={data?.post.coverImage}
+                  alt={post.title}
+                  src={post.coverImage.url}
                 />
               ) : null}
             </div>
@@ -105,26 +104,24 @@ async function Blog({
             <div className='text-center max-w-2xl lg:max-w-4xl mx-auto'>
               <div className='space-y-6 lg:space-y-10 flex flex-col items-center px-4'>
                 <h1 className='text-2xl md:text-3xl lg:text-4xl font-black leading-10 '>
-                  {data?.post.title}
+                  {post.title}
                 </h1>
 
                 <div className='flex items-center space-x-5'>
                   <div className='flex items-center space-x-4'>
                     <Image
                       alt='author'
-                      src={data?.post.author.photo}
+                      src={post.author.profilePicture}
                       width={35}
                       height={35}
                       className='rounded-full'
                     />
-                    <p className='font-semibold text-sm'>
-                      {data?.post.author.name}
-                    </p>
+                    <p className='font-semibold text-sm'>{post.author.name}</p>
                   </div>
                   <div>
                     <ul className='list-disc'>
                       <li className='text-sm'>
-                        {new Date(data?.post.dateAdded).toLocaleDateString(
+                        {new Date(post.publishedAt).toLocaleDateString(
                           "en-US",
                           {
                             year: "numeric",
@@ -139,26 +136,35 @@ async function Blog({
               </div>
             </div>
 
-            <MyComponent html={data?.post.content} />
+            <div className=' max-w-2xl lg:max-w-4xl mx-auto px-4'>
+              <MemoizedReactMarkdown
+                className='prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0 leading-relaxed space-y-4'
+                remarkPlugins={[remarkGfm, remarkMath]}
+                components={MarkdownComponents as Partial<Components>}>
+                {post.content.markdown}
+              </MemoizedReactMarkdown>
+            </div>
 
             <section className='space-y-10 lg:space-y-14'>
               <div className='flex gap-4 justify-center flex-wrap'>
-                {data?.post.tags.map((tag: { name: string }) => {
-                  return (
-                    <Card
-                      key={tag.name}
-                      className='h-full text-sm font-semibold'>
-                      {tag.name}
-                    </Card>
-                  );
-                })}
+                {post.tags
+                  ? post.tags.map((tag: { name: string }) => {
+                      return (
+                        <Card
+                          key={tag.name}
+                          className='h-full text-sm font-semibold'>
+                          {tag.name}
+                        </Card>
+                      );
+                    })
+                  : null}
               </div>
 
               <div className='py-8 border-t border-b border-slate-700'>
                 <div className='flex flex-col items-center'>
                   <Author
-                    name={data?.post.author.name}
-                    photo={data?.post.author.photo}
+                    name={post.author.name}
+                    photo={post.author.profilePicture}
                   />
                 </div>
               </div>
@@ -167,14 +173,6 @@ async function Blog({
         </div>
       </section>
     </>
-  );
-}
-
-function MyComponent(props: { html: string }) {
-  return (
-    <div
-      className={`${styles.content} max-w-2xl lg:max-w-4xl mx-auto px-4`}
-      dangerouslySetInnerHTML={{ __html: props.html }}></div>
   );
 }
 

@@ -1,23 +1,12 @@
 "use client";
 
+import { Publication } from "@/utils/types";
 import { Tooltip } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { IoArrowBackOutline } from "react-icons/io5";
 
-function Header({
-  data,
-}: {
-  data: {
-    post: {
-      author: {
-        photo: string;
-        name: string;
-      };
-    };
-  };
-}) {
+function Header({ post }: Readonly<{ post: Publication["post"] }>) {
   return (
     <div className=' flex items-center justify-between py-5 container mx-auto lg:px-10 xl:px-20 px-4 mb-3'>
       <div className=' flex items-center space-x-4 lg:space-x-8'>
@@ -31,13 +20,13 @@ function Header({
         <div className='flex items-center space-x-4'>
           <Image
             alt='author'
-            src={data?.post.author.photo}
+            src={post.author.profilePicture}
             width={40}
             height={40}
             className='rounded-full'
           />
           <h4 className='font-bold text-sm md:text-lg lg:text-xl'>
-            {`${data?.post.author.name}'s`} Blog
+            {`${post.author.name}'s`} Blog
           </h4>
         </div>
       </div>

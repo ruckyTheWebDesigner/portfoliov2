@@ -1,12 +1,12 @@
 "use client";
 
+import { NodePost } from "@/utils/types";
 import Link from "next/link";
-import React from "react";
 import BlogCard from "./BlogCard";
 
 import Button from "./Button";
 
-function MoreArticles({ posts }: { posts: any }) {
+function MoreArticles({ posts }: { readonly posts: NodePost[] }) {
   return (
     <div className='space-y-6 lg:space-y-8 flex flex-col items-center'>
       <div>
@@ -15,10 +15,10 @@ function MoreArticles({ posts }: { posts: any }) {
         </span>
       </div>
       <div className='grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 items-center'>
-        {posts?.slice(0, 5).map((article: any) => {
+        {posts?.slice(0, 5).map((article) => {
           return (
-            <Link href={`/blog/${article.slug}`} key={article._id}>
-              <BlogCard title={article.title} description={article.brief} />
+            <Link href={`/blog/${article.node.slug}`} key={article.node.id}>
+              <BlogCard node={article.node} />
             </Link>
           );
         })}

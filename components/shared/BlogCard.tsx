@@ -1,19 +1,13 @@
 "use client";
-import React from "react";
 import Card from "./Card";
 import { FiArrowRight } from "react-icons/fi";
 
 import Button from "./Button";
-
-interface Props {
-  title: string;
-  description: string;
-}
+import { NodePost, Post } from "@/utils/types";
 
 function BlogCard({
-  title,
-  description,
-}: Props & { children?: React.ReactNode }) {
+  node: { title, brief },
+}: Readonly<Pick<NodePost, "node">>) {
   return (
     <Card>
       <div className='space-y-4 '>
@@ -22,7 +16,7 @@ function BlogCard({
         </span>
 
         <p className='font-medium text-sm text-slate-800 dark:text-slate-200'>
-          {description.slice(0, 150).concat("...")}
+          {brief.slice(0, 150).concat("...")}
         </p>
 
         <div>

@@ -1,16 +1,12 @@
-"use client";
-import { Skeleton } from "@mantine/core";
-import { DefaultProps, MantineNumberSize, MantineSize } from "@mantine/styles";
+import { Skeleton, SkeletonProps } from "@mantine/core";
+
+interface CustomSkeletonProps extends SkeletonProps {}
 
 function CustomSkeleton({
   radius,
   height,
   width,
-}: {
-  height?: number | string;
-  width?: number | string;
-  radius?: MantineNumberSize;
-}) {
+}: Readonly<CustomSkeletonProps>) {
   return <Skeleton width={width} radius={radius} height={height} />;
 }
 

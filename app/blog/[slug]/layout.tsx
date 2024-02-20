@@ -1,4 +1,3 @@
-import CustomContainer from "@/components/shared/Container";
 import { FooterCentered } from "@/components/shared/Footer";
 import MoreArticles from "@/components/shared/MoreArticles";
 import { fetchArticles } from "@/utils/articles";
@@ -6,17 +5,9 @@ import { fetchArticles } from "@/utils/articles";
 export default async function Layout({
   children,
 }: {
-  children: React.ReactNode;
+  readonly children: React.ReactNode;
 }) {
-  const data = await fetchArticles();
-
-  const {
-    data: {
-      user: {
-        publication: { posts },
-      },
-    },
-  } = data;
+  const posts = await fetchArticles();
 
   return (
     <html lang='en'>
