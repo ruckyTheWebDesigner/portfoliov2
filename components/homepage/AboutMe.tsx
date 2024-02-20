@@ -26,7 +26,20 @@ const technologies: TechProps[] = [
   },
 
   {
+    name: "React Native",
+  },
+  {
+    name: "AI & ML",
+  },
+  {
     name: "Node.js",
+  },
+
+  {
+    name: "AWS",
+  },
+  {
+    name: "React Query",
   },
   {
     name: "Framer Motion",
@@ -36,12 +49,6 @@ const technologies: TechProps[] = [
   },
   {
     name: "Express JS",
-  },
-  {
-    name: "API",
-  },
-  {
-    name: "MongoDB",
   },
 ];
 
@@ -93,13 +100,18 @@ function AboutMe() {
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of contributing
-              to several open-source projects. My main focus these days is
-              solving day to day problems with modern technologies.
+              Today, as a Fractional CTO, I specialize in collaborating with
+              early-stage startups, turning visionary ideas into reality.
+              Leading cross-functional teams, I drive the development of
+              innovative web and mobile applications using cutting-edge
+              technologies like NextJs and ReactNative. My commitment to client
+              success is evident through Agile methodologies, ensuring timely
+              delivery and exceeding expectations.
             </p>
 
             <p>
-              {` Here are a few technologies that I've been working with recently:`}
+              Here are a few technologies that I&apos;ve been working with
+              recently:
             </p>
 
             <div className='grid grid-cols-2 gap-2'>
@@ -133,11 +145,11 @@ function AboutMe() {
         <div className='relative md:col-span-3'>
           <Image
             src={photo}
-            width={300}
-            height={300}
-            loading='eager'
+            width={400}
+            height={400}
+            loading='lazy'
             alt='rukewe joseph'
-            className='rounded-md aspect-square opacity-90 hover:opacity-100 transition-all duration-300 ease-in-out cursor-pointer'
+            className='rounded-md opacity-90 hover:opacity-100 transition-all duration-300 ease-in-out cursor-pointer'
           />
         </div>
       </div>

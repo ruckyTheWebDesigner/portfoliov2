@@ -1,14 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
 
 import { AiOutlineMenu } from "react-icons/ai";
 import Button from "./Button";
 
 import Drawer from "./Drawer";
 
-import { scrollIntoView } from "@/helpers/snippets";
 import ActiveLink from "./ActiveLink";
 
 function openPDF(pdfUrl: string) {
@@ -37,19 +35,15 @@ function DesktopNavBar() {
   return (
     <div className='py-8 container mx-auto lg:px-10 xl:px-20'>
       <div className='flex items-center justify-between space-x-1'>
-        <div>
-          <ActiveLink href={"/"} className=' pb-2'>
-            <h1 className='font-medium text-2xl font-serif dark:text-slate-100 '>
-              Ru<span className='text-teal-600'>k</span>ewe Joseph
-            </h1>
-          </ActiveLink>
-        </div>
+        <ActiveLink href={"/"} className=' pb-2'>
+          <h1 className='font-medium text-2xl font-serif dark:text-slate-100 '>
+            Ru<span className='text-teal-600'>k</span>ewe Joseph
+          </h1>
+        </ActiveLink>
         <div>
           <div className='flex space-x-5 md:space-x-8 lg:space-x-12 items-center'>
             <ActiveLink href={"/#about-me"} activeClassName={"border-b"}>
-              <nav
-                className='flex items-center cursor-pointer'
-                onClick={() => scrollIntoView("about-me")}>
+              <nav className='flex items-center cursor-pointer'>
                 <h5 className='font-semibold mr-2 text-teal-500'>01.</h5>{" "}
                 <h4>About Me</h4>
               </nav>
@@ -62,17 +56,15 @@ function DesktopNavBar() {
               </nav>
             </ActiveLink>
             <Link href={"/#projects"}>
-              <nav
-                onClick={() => scrollIntoView("projects")}
-                className='flex items-center cursor-pointer'>
+              <nav className='flex items-center cursor-pointer'>
                 <h5 className='font-semibold mr-2 text-teal-500'>03.</h5>{" "}
                 <h4>Projects</h4>
               </nav>
             </Link>
 
-            <Button onClick={() => openPDF("/resume.pdf")} variant='outline'>
-              Resume
-            </Button>
+            <Link href={"/#get-in-touch"}>
+              <Button variant='outline'>Get in Touch</Button>
+            </Link>
           </div>
         </div>
       </div>

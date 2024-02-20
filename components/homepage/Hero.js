@@ -11,31 +11,6 @@ function Hero() {
     element.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  // const list = {
-  //   visible: {
-  //     opacity: 1,
-  //     transition: {
-  //       when: "beforeChildren",
-  //       staggerChildren: 0.5,
-  //       // duration: 0.2,
-  //     },
-  //   },
-  //   hidden: {
-  //     opacity: 0,
-  //     hidden: {
-  //       opacity: 0,
-  //       transition: {
-  //         when: "afterChildren",
-  //       },
-  //     },
-  //   },
-  // };
-
-  // const item = {
-  //   visible: { opacity: 1, y: 0 },
-  //   hidden: { opacity: 0, y: -100 },
-  // };
-
   return (
     <div className='relative py-24 md:py-24 min-h-[80dvh] md:min-h-[75dvh] pr-4'>
       <motion.div
@@ -45,7 +20,7 @@ function Hero() {
           One line of code at a time,
         </motion.h1>
         <motion.h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold gs_reveal'>
-          Making the{" "}
+          Transforming visionary ideas
           <motion.span
             initial={{
               rotate: 0,
@@ -53,20 +28,21 @@ function Hero() {
             animate={{
               rotate: 360,
             }}>
-            🌎
+            {""} 🌎
           </motion.span>{" "}
-          a better place
+          into reality through quality softwares
         </motion.h2>
         <motion.h5
           className='text-2xl sm:text-3xl md:text-4xl
-            font-semibold hero-subtitle mb-3 dark:text-slate-400 lg:pr-10'>
-          through quality softwares
-        </motion.h5>
+            font-semibold hero-subtitle mb-3 dark:text-slate-400 lg:pr-10'></motion.h5>
         <motion.h6 className='leading-relaxed dark:text-slate-500'>
-          I’m a web developer specializing in building immersive and exceptional
-          web applications. Currently, I’m focused on building accessible,
-          human-centered products that are easy to use with{" "}
-          <span className='text-teal-500'>user-friendly experiences.</span>
+          I&apos;m a Fractional CTO specializing in building innovative web and
+          mobile applications for early-stage startups. Guiding cross-functional
+          teams with Agile methodologies, I ensure timely product delivery and
+          exceed client expectations. {""}
+          <span className='text-teal-500'>
+            Let&apos;s collaborate and build something extraordinary! 🔧🚀
+          </span>
         </motion.h6>
         <motion.div className='pt-8'>
           <Button onClick={() => scrollToSection("about-me")} variant='outline'>

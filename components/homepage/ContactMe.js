@@ -66,7 +66,9 @@ function GetInTouchSimple() {
 
   return (
     <>
-      <div className='space-y-16 sm:space-y-24 md:space-y-32 max-w-md mx-auto  flex flex-col items-center'>
+      <div
+        id='get-in-touch'
+        className='space-y-16 sm:space-y-24 md:space-y-32 max-w-md mx-auto  flex flex-col items-center'>
         <form onSubmit={onSubmit} className='text-center'>
           <div className='space-y-4 mb-6'>
             <div
