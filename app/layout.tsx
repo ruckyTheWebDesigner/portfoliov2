@@ -1,5 +1,6 @@
 import "./globals.css";
 import ThemeProvider from "@/context/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   metadataBase: new URL("https://rukewejoseph.com"),
@@ -32,17 +33,17 @@ export const metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  readonly children: React.ReactNode;
 }) {
   return (
     <html lang='en'>
       <ThemeProvider>
         <body>
           {children}
-          {/* <Analytics /> */}
+          <Analytics />
         </body>
       </ThemeProvider>
     </html>

@@ -1,12 +1,10 @@
-import { Drawer } from "@mantine/core";
+import { Button, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import React from "react";
 
 interface CustomDrawerProps {
   children: React.ReactNode;
   openButton: React.ReactNode;
-
-  open: boolean;
 }
 
 function CustomDrawer({ children, openButton }: Readonly<CustomDrawerProps>) {
@@ -25,7 +23,9 @@ function CustomDrawer({ children, openButton }: Readonly<CustomDrawerProps>) {
         {children}
       </Drawer>
 
-      <span onClick={open}>{openButton}</span>
+      <Button onClick={open} variant='transparent'>
+        {openButton}
+      </Button>
     </>
   );
 }

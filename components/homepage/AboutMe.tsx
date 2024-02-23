@@ -145,8 +145,8 @@ function AboutMe() {
         <div className='relative md:col-span-3'>
           <Image
             src={photo}
-            width={400}
-            height={400}
+            width={350}
+            height={350}
             loading='lazy'
             alt='rukewe joseph'
             className='rounded-md opacity-90 hover:opacity-100 transition-all duration-300 ease-in-out cursor-pointer'
