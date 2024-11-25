@@ -111,10 +111,11 @@ function GetInTouchSimple() {
           </Alert>
         )}
 
-        <div className='flex flex-col gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
           <TextInput
             label='Name'
             placeholder='Name'
+            className='sm:col-span-1'
             key={form.key("name")}
             {...form.getInputProps("name")}
           />
@@ -122,6 +123,7 @@ function GetInTouchSimple() {
           <TextInput
             label='Email Address'
             placeholder='Email Address'
+            className='sm:col-span-1'
             key={form.key("email")}
             {...form.getInputProps("email")}
           />
@@ -130,11 +132,12 @@ function GetInTouchSimple() {
             placeholder='Message'
             autosize
             minRows={3}
+            className='sm:col-span-2'
             key={form.key("message")}
             {...form.getInputProps("message")}
           />
 
-          <div>
+          <div className='sm:col-span-2'>
             <Button
               variant='filled'
               type='submit'

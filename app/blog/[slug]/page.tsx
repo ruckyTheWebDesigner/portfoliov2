@@ -12,13 +12,14 @@ import { MemoizedReactMarkdown } from "@/components/shared/MemoizedReactMarkdown
 import MarkdownComponents from "@/components/shared/MarkDownComponents";
 import { Components } from "react-markdown";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: {
-    slug: string;
-  };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{
+      slug: string;
+    }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const { slug } = params;
 
   const post = await fetchArticle(slug);
@@ -54,13 +55,14 @@ export async function generateMetadata({
   };
 }
 
-async function Blog({
-  params,
-}: {
-  readonly params: {
-    readonly slug: string;
-  };
-}) {
+async function Blog(
+  props: {
+    readonly params: Promise<{
+      readonly slug: string;
+    }>;
+  }
+) {
+  const params = await props.params;
   const { slug } = params;
 
   const post = await fetchArticle(slug);

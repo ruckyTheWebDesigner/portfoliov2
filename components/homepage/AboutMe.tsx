@@ -1,11 +1,8 @@
 "use client";
-import React from "react";
 import { MdPlayArrow } from "react-icons/md";
 import photo from "../../assets/photo.png";
 import Image from "next/image";
 import { Divider } from "@mantine/core";
-
-import { motion } from "framer-motion";
 
 import Button from "../shared/Button";
 
@@ -50,7 +47,7 @@ const technologies: TechProps[] = [
   },
   {
     name: "Git | GitHub",
-  }
+  },
 ];
 
 const socials = [
@@ -73,7 +70,7 @@ const socials = [
 
 function AboutMe() {
   return (
-    <motion.div id='about-me' className='space-y-6 md:space-y-8 lg:space-y-10'>
+    <div id='about-me' className='space-y-6 md:space-y-8 lg:space-y-10'>
       <Divider
         my='xs'
         label={
@@ -97,11 +94,18 @@ function AboutMe() {
             </p>
 
             <p>
-            Today, as a Freelance Developer, I specialize in crafting advanced AI solutions, web, and mobile applications for businesses of all sizes. From building intelligent AI agents to delivering scalable, high-performance software, I combine creativity with technical expertise to help clients achieve their goals. I thrive on solving complex problems and turning ambitious ideas into reality with a strong focus on quality and user satisfaction.
+              Today, as a Freelance Developer, I specialize in crafting advanced
+              AI solutions, web, and mobile applications for businesses of all
+              sizes. From building intelligent AI agents to delivering scalable,
+              high-performance software, I combine creativity with technical
+              expertise to help clients achieve their goals. I thrive on solving
+              complex problems and turning ambitious ideas into reality with a
+              strong focus on quality and user satisfaction.
             </p>
 
             <p>
-              Here are a few of the technologies I&apos;ve honed to deliver exceptional results for my clients:
+              Here are a few of the technologies I&apos;ve honed to deliver
+              exceptional results for my clients:
             </p>
 
             <div className='grid grid-cols-2 gap-2'>
@@ -141,7 +145,7 @@ function AboutMe() {
           />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

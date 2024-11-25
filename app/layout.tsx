@@ -1,5 +1,5 @@
 import "./globals.css";
-import "@mantine/core/styles.css";
+
 import ThemeProvider from "@/context/ThemeProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -11,7 +11,7 @@ export const metadata = {
     "Rukewe Joseph is a software engineer and full-stack Javascript developer. Check out his portfolio website to see his skills, experience, and projects, and read his blog for insights into web development and Javascript.",
   robots: "index, follow",
   keywords:
-    "Rukewe Joseph, Software Engineer, Javascript Developer, Full Stack Developer, Portfolio Website, Blog, Web Development, Javascript",
+    "Rukewe Joseph, Software Engineer, Javascript Developer, Full Stack Developer, Portfolio Website, Blog, Web Development, Javascript, AI Engineer, Custom AI Agents, AI Web Developments",
   generator: "Next.js",
   manifest: "/manifest.json",
   category: "Portfolio",
@@ -20,7 +20,8 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: "https://www.rukewejoseph.com",
-    title: "Rukewe Joseph | Javascript Developer | Portfolio Website",
+    title:
+      "Rukewe Joseph | Javascript Developer | AI Engineer | Portfolio Website",
     description:
       "Rukewe Joseph is a software engineer and full-stack Javascript developer. Check out his portfolio website to see his skills, experience, and projects, and read his blog for insights into web development and Javascript.",
     siteName: "Rukewe Joseph Portfolio",

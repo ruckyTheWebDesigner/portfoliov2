@@ -3,7 +3,7 @@ import { Timeline } from "@mantine/core";
 
 import { MdOutlineWork } from "react-icons/md";
 
-export function Demo({ workHistory }: { workHistory: Readonly<any[]> }) {
+export function Demo({ workHistory }: Readonly<{ workHistory: any[] }>) {
   return (
     <Timeline active={0} bulletSize={24} lineWidth={2}>
       {workHistory.map((item) => (

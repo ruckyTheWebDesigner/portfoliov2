@@ -1,10 +1,11 @@
 "use client";
+
 import { Divider } from "@mantine/core";
 import React from "react";
 import TimeLine from "./TimeLine";
 
 interface Props {
-  workHistory: Readonly<any[]>;
+  workHistory: any[];
 }
 
 function WorkHistory({ workHistory }: Readonly<Props>) {
