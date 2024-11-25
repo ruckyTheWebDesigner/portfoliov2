@@ -1,7 +1,6 @@
 "use client";
 
 import { MantineProvider } from "@mantine/core";
-import "@mantine/core/styles.css";
 
 export default function ThemeProvider({
   children,
@@ -12,7 +11,6 @@ export default function ThemeProvider({
     <MantineProvider
       theme={{
         primaryColor: "teal",
-
         fontFamily:
           "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', sans-serif",
       }}>

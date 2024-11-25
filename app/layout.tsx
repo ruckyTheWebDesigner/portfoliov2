@@ -1,8 +1,8 @@
 import "./globals.css";
-
+import "@mantine/core/styles.css";
 import ThemeProvider from "@/context/ThemeProvider";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+// import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   metadataBase: new URL("https://rukewejoseph.com"),
@@ -46,8 +46,8 @@ export default function RootLayout({
       <ThemeProvider>
         <body>
           {children}
-          <Analytics />
-          <SpeedInsights />
+          {/* <Analytics /> */}
+          {/* <SpeedInsights /> */}
         </body>
       </ThemeProvider>
     </html>
