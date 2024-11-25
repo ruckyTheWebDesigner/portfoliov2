@@ -3,6 +3,7 @@ import Link from "next/link";
 import Button from "./Button";
 
 import ActiveLink from "./ActiveLink";
+import MobileNavBar from "./MobileNavBar";
 
 function NavBar() {
   return (
@@ -77,39 +78,4 @@ const NavLinks = [
   },
 ];
 
-function MobileNavBar() {
-  return (
-    <div className='py-5 px-4 flex items-center justify-between'>
-      <Link href={"/"} className=' transition-all pb-2 group'>
-        <h1 className='font-medium text-2xl font-serif dark:text-slate-100 group-hover:border-b transition-all  group-hover:pb-1 '>
-          Ru<span className='text-teal-600'>k</span>ewe Joseph
-        </h1>
-      </Link>
-
-      <Link href={"/#get-in-touch"}>
-        <Button variant='outline'>Get in Touch</Button>
-      </Link>
-
-      {/* <Drawer openButton={<AiOutlineMenu size={30} />}>
-        <div className='flex flex-col items-center justify-center min-h-[70vh] gap-8'>
-          {NavLinks.map((link) => (
-            <Link key={link.title} href={link.link}>
-              <nav className='flex flex-col items-center'>
-                <h5 className='font-semibold mr-2 text-teal-500 '>
-                  {link.number}
-                </h5>{" "}
-                <h4 className='text-slate-300'>{link.title}</h4>
-              </nav>
-            </Link>
-          ))}
-          <div>
-            <Link href={"/#get-in-touch"}>
-              <Button variant='outline'>Get in Touch</Button>
-            </Link>
-          </div>
-        </div>
-      </Drawer> */}
-    </div>
-  );
-}
 export default NavBar;
