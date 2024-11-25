@@ -1,11 +1,12 @@
 "use client";
 import { useForm } from "@mantine/form";
 
-import { TextInput, Textarea, Alert, Button } from "@mantine/core";
+import { TextInput, Textarea, Alert } from "@mantine/core";
 
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { MdDone, MdError } from "react-icons/md";
+import Button from "../shared/Button";
 
 function GetInTouchSimple() {
   const [loading, setLoading] = useState(false);
@@ -137,12 +138,8 @@ function GetInTouchSimple() {
             {...form.getInputProps("message")}
           />
 
-          <div className='sm:col-span-2'>
-            <Button
-              variant='filled'
-              type='submit'
-              color={"teal"}
-              disabled={loading}>
+          <div className='sm:col-span-2 flex justify-center'>
+            <Button variant='default' type='submit' disabled={loading}>
               {loading ? "Sending..." : "Send Message"}
             </Button>
           </div>

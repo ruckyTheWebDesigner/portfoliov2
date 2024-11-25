@@ -9,15 +9,19 @@ interface Props {
   children?: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
+  type?: "submit" | "button" | "reset";
 }
 
 function Button({
   variant = "default",
+  type = "submit",
   rightIcon,
   leftIcon,
   children,
   className,
   onClick,
+  disabled,
 }: Readonly<Props>) {
   const variants = {
     default: `border-none outline-none bg-teal-500 hover:bg-opacity-80 flex items-center space-x-3 font-medium border border-teal-500 text-white rounded-md ${className}`,
@@ -28,6 +32,8 @@ function Button({
 
   return (
     <button
+      type={type}
+      disabled={disabled}
       onClick={onClick}
       className={`py-2 px-2 active:bg-teal-50 transition-all outline-none ${
         variants[variant] ? variants[variant] : variants["default"]
