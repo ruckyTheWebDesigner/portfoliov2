@@ -9,7 +9,13 @@ interface Props {
 import Button from "./Button";
 function Demo({ message, open, close }: Readonly<Props>) {
   return (
-    <Dialog opened={open} withCloseButton onClose={close} size='md' radius='md'>
+    <Dialog
+      withCloseButton
+      onClose={close}
+      size='md'
+      radius='md'
+      position={{ bottom: 20, left: 20 }}
+      opened>
       <Text size='sm' mb='xs'>
         {message}
       </Text>

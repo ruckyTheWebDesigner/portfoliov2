@@ -20,7 +20,7 @@ export default async function Home() {
       <div className='space-y-16 sm:space-y-24 md:space-y-32 md:max-w-3xl lg:max-w-4xl container mx-auto px-4'>
         <Hero />
         <AboutMe />
-        <WorkHistory workHistory={workHistory} />
+        <WorkHistory workHistory={workHistory as any[]} />
         <Projects projects={projects} />
         <OtherProjects projects={otherProjects} />
         <ContactMe />

@@ -30,7 +30,7 @@ function Input({
   name,
   placeholder,
   id,
-}: Props) {
+}: Readonly<Props>) {
   return (
     <input
       type={type}
@@ -49,7 +49,7 @@ export function TextArea({
   placeholder,
   name,
   id,
-}: Props) {
+}: Readonly<Props>) {
   return (
     <textarea
       rows={rows}

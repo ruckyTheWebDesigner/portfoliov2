@@ -30,18 +30,19 @@ function Hero() {
             }}>
             {""} 🌎
           </motion.span>{" "}
-          into reality through quality softwares
+          into reality through AI and quality softwares
         </motion.h2>
         <motion.h5
           className='text-2xl sm:text-3xl md:text-4xl
             font-semibold hero-subtitle mb-3 dark:text-slate-400 lg:pr-10'></motion.h5>
         <motion.h6 className='leading-relaxed dark:text-slate-500'>
-          I&apos;m a Fractional CTO specializing in building innovative web and
-          mobile applications for early-stage startups. Guiding cross-functional
-          teams with Agile methodologies, I ensure timely product delivery and
-          exceed client expectations. {""}
+          I&apos;m a Freelance Developer specializing in custom AI solutions and
+          innovative web and mobile applications for early-stage startups and
+          beyond. With expertise in building AI agents and tailored software
+          systems, I guide projects with Agile methodologies to ensure timely
+          delivery and exceptional results. <br />
           <span className='text-teal-500'>
-            Let&apos;s collaborate and build something extraordinary! 🔧🚀
+            Let&apos;s collaborate and bring a vision to life! 💡🔧🚀
           </span>
         </motion.h6>
         <motion.div className='pt-8'>

@@ -1,6 +1,6 @@
-"use client";
-
+import { email } from "@/utils/consts";
 import { Container } from "@mantine/core";
+import Link from "next/link";
 import React from "react";
 
 import { FiTwitter, FiGithub } from "react-icons/fi";
@@ -12,7 +12,9 @@ function Sidebar() {
         <div
           id='email'
           className='hidden md:block fixed font-mono bottom-3 right-3 lg:right-24 text-md'>
-          <a href='/'>rukewejoseph77@gmail.com</a>
+          <Link href={`mailto:${email}`} target='_blank' rel='noreferrer'>
+            {email}
+          </Link>
         </div>
       </div>
 

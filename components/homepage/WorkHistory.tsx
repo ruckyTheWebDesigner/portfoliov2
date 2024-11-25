@@ -3,7 +3,11 @@ import { Divider } from "@mantine/core";
 import React from "react";
 import TimeLine from "./TimeLine";
 
-function WorkHistory({ workHistory }: { workHistory: any }) {
+interface Props {
+  workHistory: Readonly<any[]>;
+}
+
+function WorkHistory({ workHistory }: Readonly<Props>) {
   return (
     <div className='space-y-6 md:space-y-8 lg:space-y-10'>
       <Divider
