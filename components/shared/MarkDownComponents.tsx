@@ -1,4 +1,4 @@
-import React, { type JSX } from "react";
+import React from "react";
 import CodeBlock from "./CodeBlock"; // Import CodeBlock from its location
 import { Table } from "@mantine/core";
 
@@ -65,13 +65,13 @@ const MarkdownComponents: Components = {
     }
 
     return (
-      (<div className='py-3'>
+      <div className='py-3'>
         <CodeBlock
           language={(match && match[1]) || ""}
           code={String(children).replace(/\n$/, "")}
           {...props}
         />
-      </div>)
+      </div>
     );
   },
   ul({ children }) {
