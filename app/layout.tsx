@@ -1,5 +1,5 @@
 import "./globals.css";
-import "@mantine/core/styles.css";
+// import "@mantine/core/styles.css";
 import ThemeProvider from "@/context/ThemeProvider";
 import { Analytics } from "@vercel/analytics/react";
 // import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -46,7 +46,7 @@ export default function RootLayout({
       <ThemeProvider>
         <body>
           {children}
-          {/* <Analytics /> */}
+          <Analytics />
           {/* <SpeedInsights /> */}
         </body>
       </ThemeProvider>
